@@ -6,7 +6,7 @@
         private $pdo;
     
         public function __construct() {
-            $this->dsn = 'mysql:dbname=Camagru;host=127.0.0.1';
+            $this->dsn = 'mysql:dbname=camagru;host=127.0.0.1';
             $this->user = 'root';
             $this->passwd = 'root';
             $this->pdo = '';
