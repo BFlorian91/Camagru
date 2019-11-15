@@ -1,19 +1,19 @@
 <?php 
-    class RegisterRecord {
-        private $username;
-        private $password;
-        private $email;
+    class DataUserRecord {
+        private $_username;
+        private $_password;
+        private $_email;
 
         public function __construct($username, $password, $email) {
             $this->setDataUser($username, $password, $email);
         }
 
         public function setUsername($name) {
-            $this->username = $name;
+            $this->_username = $name;
         }
         
         public function getUsername() {
-            return $this->username;
+            return $this->_username;
         }
 
         public function setPassword($pass) {
@@ -24,21 +24,21 @@
         }
 
         public function getPassword() {
-            return $this->password;
+            return $this->_password;
         }
 
         public function setEmail($emailUser) {
-            $this->email = $emailUser;
+            $this->_email = $emailUser;
         }
 
         public function getEmail() {
-            return $this->email;
+            return $this->_email;
         }
 
         public function setDataUser($username, $email, $password) {
-            $this->username = $this->setUsername($username);
-            $this->password = $this->setPassword($password);
-            $this->email = $this->setEmail($email);
+            $this->_username = $this->setUsername($username);
+            $this->_password = $this->setPassword($password);
+            $this->_email = $this->setEmail($email);
         }
  
     }
