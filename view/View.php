@@ -20,24 +20,21 @@
     }
 
     public function menu()
-    {
-      ob_start(); ?>
+    { ?>
       
       <body>
       <?php $this->htmlElement .= ob_get_contents();
     }
 
     public function body($content)
-    {
-      ob_start(); ?>
+    { ?>
 
       </body>
       <?php $this->htmlElement .= ob_get_contents();
     }
 
     public function footer()
-    {
-      ob_start(); ?>
+    { ?>
 
       </html>
       <?php $this->htmlElement .= ob_get_contents();
