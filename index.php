@@ -1,9 +1,14 @@
 <?php
-    require_once 'connectToBdd.php';
-    require_once 'Ctrl.php';
-    require_once 'CtrlSignIn.php';
+    // require_once 'connectToBdd.php';
+    // require_once 'Ctrl.php';
+    // require_once 'CtrlSignIn.php';
 
-    $ctrl = Ctrl::chooseCtrl();
-    $ctrl->start();
-    echo $ctrl->getView();
+    // $ctrl = Ctrl::chooseCtrl();
+    // $ctrl->start();
+    // echo $ctrl->getView();
+
+    require_once 'view/View.php';
+
+    $view = new View();
+    echo $view->buildPage();
 ?>
