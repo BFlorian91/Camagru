@@ -2,13 +2,12 @@
 
 class View
 {
-  protected $htmlElement;
-  protected $items;
+  protected $_htmlElement;
+  protected $_items;
 
   public function __construct()
   {
-    $this->items = [
-      'Home' => 'home',
+    $this->_items = [
       'Signin' => 'signin',
       'Signup' => 'signup',
       'Account' => 'account',
@@ -31,15 +30,15 @@ class View
   <title>Camagru</title>
 </head>
 
-<?php echo ob_get_contents();
+<?php
     }
 
     public function menu()
     { ?>
-<nav class="navbar navbar-expand-md navbar-light fixed-top py-4" id="main-nav">
+<body>
+<nav class="navbar navbar-expand-md navbar-light fixed-top py-4 bg-danger" id="main-nav">
   <div class="container">
     <a href="index.php?page=home" class="navbar-brand">
-      <!-- <img src="" width="50" height="50" alt="logo" /> -->
       <h3 class="d-inline align-middle">Camagru</h3>
     </a>
     <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -47,40 +46,47 @@ class View
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav ml-auto">
-        <?php foreach ($this->items as $key => $val) { ?>
+        <?php foreach ($this->_items as $key => $val) {
+          if ($_SESSION['user'] == '' && $key !== 'Account' && $key !== 'Logout'): ?>
         <li class="nav-item">
-          <a href="<?php echo "index.php?page=" . $val ?>" class="nav-link" style="cursor: pointer;"><?php echo $key ?></a>
+          <a href="<?php echo "index.php?page=" . $val ?>" class="nav-link"
+            style="cursor: pointer;"><?php echo $key ?></a>
         </li>
-        <?php } ?>
+        <?php elseif ($_SESSION['user'] != '' && $key != 'Signin' && $key != 'Signup'): ?>
+        <li class="nav-item">
+          <a href="<?php echo "index.php?page=" . $val ?>" class="nav-link"
+            style="cursor: pointer;"><?php echo $key ?></a>
+        </li>
+        <?php endif; } ?>
       </ul>
     </div>
   </div>
 </nav>
 
-<body>
-  <?php return ob_get_contents();
+
+  <?php
       }
 
       public function bodyPage()
       { ?>
 
-</body>
-<?php return ob_get_contents();
+<?php
     }
 
     public function footerPage()
     { ?>
 
+  </body>
 </html>
-<?php return ob_get_contents();
+<?php
   }
   
   public function buildPage()
   {
-    $this->htmlElement .= $this->headerPage();
-    $this->htmlElement .= $this->menu();
-    $this->htmlElement .= $this->bodyPage();
-    $this->htmlElement .= $this->footerPage();
-    return $this->htmlElement;
+    $this->_htmlElement = $this->headerPage();
+    $this->_htmlElement .= $this->menu();
+    $this->_htmlElement .= $this->bodyPage();
+    $this->_htmlElement .= $this->footerPage();
+    return $this->_htmlElement;
   }
 }
