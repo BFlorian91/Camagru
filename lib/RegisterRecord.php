@@ -4,8 +4,8 @@
         private $password;
         private $email;
 
-        public function __construct() {
-             
+        public function __construct($username, $password, $email) {
+            $this->setDataUser($username, $password, $email);
         }
 
         public function setUsername($name) {
