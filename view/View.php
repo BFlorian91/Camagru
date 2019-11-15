@@ -8,11 +8,11 @@ class View
   public function __construct()
   {
     $this->items = [
-      'Home' => 'home.php',
-      'Signin' => 'signin.php',
-      'Signup' => 'signup.php',
-      'Account' => 'account.php',
-      'Logout' => 'logout.php'
+      'Home' => 'home',
+      'Signin' => 'signin',
+      'Signup' => 'signup',
+      'Account' => 'account',
+      'Logout' => 'logout'
     ];
   }
 
@@ -31,14 +31,14 @@ class View
   <title>Camagru</title>
 </head>
 
-<?php $this->htmlElement .= ob_get_contents();
+<?php echo ob_get_contents();
     }
 
     public function menu()
     { ?>
 <nav class="navbar navbar-expand-md navbar-light fixed-top py-4" id="main-nav">
   <div class="container">
-    <a href="home" class="navbar-brand">
+    <a href="index.php?page=home" class="navbar-brand">
       <!-- <img src="" width="50" height="50" alt="logo" /> -->
       <h3 class="d-inline align-middle">Camagru</h3>
     </a>
@@ -58,20 +58,29 @@ class View
 </nav>
 
 <body>
-  <?php $this->htmlElement .= ob_get_contents();
+  <?php return ob_get_contents();
       }
 
-      public function body($content)
+      public function bodyPage()
       { ?>
 
 </body>
-<?php $this->htmlElement .= ob_get_contents();
+<?php return ob_get_contents();
     }
 
-    public function footer()
+    public function footerPage()
     { ?>
 
 </html>
-<?php $this->htmlElement .= ob_get_contents();
+<?php return ob_get_contents();
+  }
+  
+  public function buildPage()
+  {
+    $this->htmlElement .= $this->headerPage();
+    $this->htmlElement .= $this->menu();
+    $this->htmlElement .= $this->bodyPage();
+    $this->htmlElement .= $this->footerPage();
+    return $this->htmlElement;
   }
 }
