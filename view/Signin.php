@@ -16,7 +16,7 @@
           <label name="password">Password</label>
           <input type="password" class="form-control" placeholder="Enter password">
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-dark">Submit</button>
       </form>
      </div>
 <?php 

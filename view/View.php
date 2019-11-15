@@ -36,7 +36,7 @@ class View
     public function menu()
     { ?>
 <body>
-<nav class="navbar navbar-expand-md navbar-light fixed-top py-4 bg-danger" id="main-nav">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top py-4 bg-dark" id="main-nav">
   <div class="container">
     <a href="index.php?page=home" class="navbar-brand">
       <h3 class="d-inline align-middle">Camagru</h3>

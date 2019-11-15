@@ -22,7 +22,7 @@
           <label name="password">Password</label>
           <input type="password" class="form-control" placeholder="Enter new password">
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-dark">Submit</button>
       </form>
       <hr class="py-4 mt-4" >
       <h3>User settings</h3>
