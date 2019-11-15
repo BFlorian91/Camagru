@@ -8,13 +8,13 @@
      <h3>Edit Account</h3>
       <form method="POST" class="row justify-start flex-column">
         <div class="form-group">
-          <label name="userName">Username</label>
+          <label name="username">Username</label>
           <input type="text" class="form-control"
             placeholder="Enter New username">
         </div>
         <div class="form-group">
           <label for="exampleInputEmail1">Email address</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+          <input type="email" class="form-control" name="email" aria-describedby="emailHelp"
             placeholder="Enter new email">
           <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>

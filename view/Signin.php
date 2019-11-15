@@ -8,7 +8,7 @@
      <div class="container w-25" style="margin-top: 150px;">
       <form method="POST" class="row justify-center flex-column">
         <div class="form-group">
-          <label name="userName">Username / Email</label>
+          <label name="username">Username / Email</label>
           <input type="text" class="form-control"
             placeholder="Enter username or email">
         </div>
