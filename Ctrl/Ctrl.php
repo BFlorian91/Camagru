@@ -16,25 +16,25 @@
             return $ctrl;
         }
         
-        protected $htmlelement;
-        protected $setStyle;
-        protected $view;
+        protected $_htmlelement;
+        protected $_setStyle;
+        protected $_view;
         
         public function __construct() {
-            $this->setStyle = '';
-            $this->view = null;
+            $this->_setStyle = '';
+            $this->_view = null;
         }
 
         public function getView() {
-            return $this->view;
+            return $this->_view;
         }
         
         public function setCssStyle($cssSrc) {
-            $this->setStyle = $cssSrc;
+            $this->_setStyle = $cssSrc;
         }
 
         public function getStyle() {
-            return $this->setStyle;
+            return $this->_setStyle;
         }
     }
 

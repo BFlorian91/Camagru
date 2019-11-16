@@ -1,24 +1,24 @@
 <?php
     class ConnectToBdd {
-        private $dsn;
-        private $user;
-        private $passwd;
-        private $pdo;
+        private $_dsn;
+        private $_user;
+        private $_passwd;
+        private $_pdo;
     
         public function __construct() {
-            $this->dsn = 'mysql:dbname=camagru;host=127.0.0.1';
-            $this->user = 'root';
-            $this->passwd = 'root';
-            $this->pdo = '';
+            $this->_dsn = 'mysql:dbname=camagru;port=8889;host=127.0.0.1';
+            $this->_user = 'root';
+            $this->_passwd = 'root';
+            $this->_pdo = '';
         }
 
         public function getPdo() {
-            return $this->pdo;
+            return $this->_pdo;
         }
 
         public function connectToDb() {
             try {
-                $this->pdo = new PDO($this->dsn, $this->user, $this->passwd);
+                $this->_pdo = new PDO($this->_dsn, $this->_user, $this->_passwd);
             } catch (PDOException $e) {
                 echo 'Connexion échouée : ' . $e->getMessage();
             }
