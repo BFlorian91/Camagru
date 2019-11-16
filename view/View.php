@@ -39,7 +39,7 @@ class View
 <body>
 <nav class="navbar navbar-expand-md navbar-dark fixed-top py-4 bg-dark" id="main-nav">
   <div class="container">
-    <a href="index.php?page=home" class="navbar-brand">
+    <a href="index.php?page=gallery" class="navbar-brand">
       <h3 class="d-inline align-middle">Camagru</h3>
     </a>
     <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">

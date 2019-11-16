@@ -9,6 +9,9 @@
                 case 'signin':
                     $ctrl = new CtrlSignIn();
                     break;
+                case 'gallery':
+                    $ctrl = new CtrlGallery();
+                    break;
                 default:
                     header("HTTP/1.0 404 Not Found");
                     break;
