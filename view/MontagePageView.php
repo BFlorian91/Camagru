@@ -5,27 +5,29 @@
     public function bodyPage()
     {
     ?>
-    <div class="container col bg-primary" style="margin-top: 150px">
-      <div class="row justify-content-around">
-        <div class="col-md-8 bg-warning" style="min-height: 70vh">
-        <div>
-          <script>
-            navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia
-          </script>
+    <div class="container col" style="margin-top: 150px">
+      <div class="row justify-content-center">
+        <div class="col-md-6 ml-4" style="min-height: 50vh; border: solid 1px">
+          <video class="w-100" id="video"></video>
+          <canvas class="w-100" id="canvas"></canvas>
         </div>
-        </div>
-        <div class="col-md-3 bg-success" style="min-height: 70vh">
-          <h1>Options</h1>
+        <div class="col-md-2 ml-4" style="min-height: 50vh; border: solid 1px;">
+          <h1 class="text-center" >Options</h1>
           <hr>
-          <div class="w-75 bg-danger">
-
+          <div class="row justify-content-center mb-4">
+            <img width="100" src="../lib/filtre/lu1.png" alt="magi">
+            <img width="100" src="../lib/filtre/lu1.png" alt="magi">
+            <img width="100" src="../lib/filtre/lu1.png" alt="magi">
+            <img width="100" src="../lib/filtre/lu1.png" alt="magi">
+            <img width="100" src="../lib/filtre/lu1.png" alt="magi">
+            <img width="100" src="../lib/filtre/lu1.png" alt="magi">
           </div>
-          <form action="#" method="post">
-            <input type="submit" class="w-100" style="height: 4em;" name="takePhoto" value="Take Photo">
-          </form>
+          <button class="w-100 py-2 mb-4" id="startButton">Take photo</button> 
+          <button class="w-100 py-2" id="clearButton">Clear photo</button> 
         </div>
       </div>
     </div>
+    <script src="../lib/js/camera.js"></script>
 <?php
     }
   }

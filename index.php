@@ -4,6 +4,7 @@
     require_once 'view/SigninView.php';
     require_once 'view/SignupView.php';
     require_once 'view/EditAccountView.php';
+    require_once 'view/MontagePageView.php';
     require_once 'connectToBdd.php';
     require_once 'lib/DataUserRecord.php';
     require_once 'lib/SqlStatement/Sqlstatement.php';
@@ -15,7 +16,7 @@
     require_once 'Ctrl/CtrlSignUp.php';
     require_once 'Ctrl/CtrlSignIn.php';
 
-    $ctrl = Ctrl::chooseCtrl();
-    $ctrl->start();
-    echo $ctrl->getView();
+    // $ctrl = Ctrl::chooseCtrl();
+    $ctrl = new MontagePage;
+    echo $ctrl->buildPage();
 ?>
