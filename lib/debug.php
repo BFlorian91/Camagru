@@ -1,7 +1,7 @@
 <?php
     
     function debug($error) {
-        echo '<pre>'.$error.'</pre>';
+        echo '<pre>'.var_dump($error).'</pre>';
     }
 
 ?>
