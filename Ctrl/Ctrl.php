@@ -12,6 +12,9 @@
                 case 'gallery':
                     $ctrl = new CtrlGallery();
                     break;
+                case 'montage':
+                    $ctrl = new CtrlMontage();
+                    break;
                 default:
                     header("HTTP/1.0 404 Not Found");
                     break;

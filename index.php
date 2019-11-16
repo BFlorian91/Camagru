@@ -18,6 +18,7 @@
     require_once 'Ctrl/CtrlSignUp.php';
     require_once 'Ctrl/CtrlSignIn.php';
     require_once 'Ctrl/CtrlGallery.php';
+    require_once 'Ctrl/CtrlMontage.php';
 
     $ctrl = Ctrl::chooseCtrl();
     $ctrl->start();

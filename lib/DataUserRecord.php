@@ -61,6 +61,8 @@
             $this->_confirmkey = $key;
         }
         public function setDataUser($username, $password, $email = null) {
+            debug($password);
+            debug($email);
             $this->setConfirmkey();
             $this->setPassword($password);
             $this->setUsername($username);

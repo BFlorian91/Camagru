@@ -5,7 +5,7 @@
             parent::__construct($linkToDb, $record);
             $username = $this->_record->getUsername();
             $email = $this->_record->getEmail();
-            $this->_sql = "SELECT * FROM users WHERE (email='$email' AND username='$username');";
+            $this->_sql = "SELECT * FROM users WHERE (email='$email' OR username='$username');";
         }
 
         public function getSql() {

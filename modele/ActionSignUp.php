@@ -8,7 +8,7 @@
         private $_rowCount;
 
         public function __construct($username, $email, $password) {
-            $this->_recordDataUser = new DataUserRecord($username, $email, $password);
+            $this->_recordDataUser = new DataUserRecord($username, $password, $email);
             $this->_connectToBdd = new ConnectToBdd();
             $this->_connectToBdd->connectToDb();
             $this->_sqlSignUpStatement = new SqlstatementSignUp($this->_connectToBdd, $this->_recordDataUser);
@@ -26,7 +26,7 @@
             $this->_sqlCheckBeforeSignUp->prepare();
             $this->_sqlCheckBeforeSignUp->execute();
             $this->_rowCount = $this->_sqlCheckBeforeSignUp->getRowCount();
-            die('there');
+            debug($this->_rowCount);
             if ($this->_rowCount == 0) {
                 $this->_sqlSignUpStatement->prepare();
                 $this->_sqlSignUpStatement->bindParam();

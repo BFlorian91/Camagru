@@ -15,7 +15,6 @@
                 $email = $_POST['email'];
                 $this->_action = new ActionSignUp($username, $email, $password);
                 $this->_action->signUp();
-                debug($this->_action->getSuccess());
                 if ($this->_action->getSuccess()) {
                     die('ok');
                     die ('good user added succefully ');
