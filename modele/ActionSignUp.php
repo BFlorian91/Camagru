@@ -26,7 +26,6 @@
             $this->_sqlCheckBeforeSignUp->prepare();
             $this->_sqlCheckBeforeSignUp->execute();
             $this->_rowCount = $this->_sqlCheckBeforeSignUp->getRowCount();
-            debug($this->_rowCount);
             if ($this->_rowCount == 0) {
                 $this->_sqlSignUpStatement->prepare();
                 $this->_sqlSignUpStatement->bindParam();
