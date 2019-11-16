@@ -16,7 +16,7 @@
     require_once 'Ctrl/CtrlSignUp.php';
     require_once 'Ctrl/CtrlSignIn.php';
 
-    // $ctrl = Ctrl::chooseCtrl();
-    $ctrl = new MontagePage;
-    echo $ctrl->buildPage();
+    $ctrl = Ctrl::chooseCtrl();
+    $ctrl->start();
+    echo $ctrl->getView();
 ?>
