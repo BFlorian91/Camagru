@@ -1,15 +1,17 @@
-<?php
-    // require_once 'connectToBdd.php';
-    // require_once 'Ctrl.php';
-    // require_once 'CtrlSignIn.php';
-
-    // $ctrl = Ctrl::chooseCtrl();
-    // $ctrl->start();
-    // echo $ctrl->getView();
-
+<?php 
+    require_once 'lib/debug.php';
     require_once 'view/View.php';
+    require_once 'view/Signup.php';
     require_once 'view/EditAccount.php';
+    require_once 'connectToBdd.php';
+    require_once 'lib/DataUserRecord.php';
+    require_once 'lib/SqlStatement/Sqlstatement.php';
+    require_once 'lib/SqlStatement/SqlstatementSignUp.php';
+    require_once 'modele/ActionSignUp.php';
+    require_once 'Ctrl/Ctrl.php';
+    require_once 'Ctrl/CtrlSignUp.php';
 
-    $view = new EditAccount();
-    echo $view->buildPage();
+    $ctrl = Ctrl::chooseCtrl();
+    $ctrl->start();
+    echo $ctrl->getView();
 ?>

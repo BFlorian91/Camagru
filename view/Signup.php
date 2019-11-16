@@ -8,8 +8,8 @@
      <div class="container w-25" style="margin-top: 150px;">
       <form method="POST" class="row justify-center flex-column">
         <div class="form-group">
-          <label name="username">Username</label>
-          <input type="text" class="form-control"
+          <label>Username</label>
+          <input type="text" class="form-control" name="username"
             placeholder="Enter username">
         </div>
         <div class="form-group">
@@ -20,7 +20,7 @@
         </div>
         <div class="form-group">
           <label name="password">Password</label>
-          <input type="password" class="form-control" placeholder="Enter password">
+          <input type="password" class="form-control" name="password" placeholder="Enter password">
         </div>
         <button type="submit" class="btn btn-dark">Submit</button>
       </form>
