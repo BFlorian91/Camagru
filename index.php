@@ -8,8 +8,8 @@
     // echo $ctrl->getView();
 
     require_once 'view/View.php';
-    require_once 'view/EditAccount.php';
+    require_once 'view/MontagePageView.php';
 
-    $view = new EditAccount();
+    $view = new MontagePage();
     echo $view->buildPage();
 ?>
