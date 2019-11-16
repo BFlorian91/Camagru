@@ -1,12 +1,12 @@
 <?php
     class CtrlMontage extends Ctrl {
-
+        private $montage;
         public function __construct() {
-            $this->_view = new MontagePage();
+            $this->montage = new MontagePage();
         }
 
         public function start() {
-            $this->_view->buildPage();
+            $this->_view = $this->montage->buildPage();
         }
     }
 

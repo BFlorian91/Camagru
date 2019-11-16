@@ -8,6 +8,7 @@
     require_once 'view/GalleryView.php';
     require_once 'connectToBdd.php';
     require_once 'lib/DataUserRecord.php';
+    require_once 'lib/SendMail.php';
     require_once 'lib/SqlStatement/Sqlstatement.php';
     require_once 'lib/SqlStatement/SqlStatementCheckBeforeSignUp.php';
     require_once 'lib/SqlStatement/SqlstatementSignUp.php';

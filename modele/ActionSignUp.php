@@ -6,6 +6,7 @@
         private $_sqlCheckBeforeSignUp;
         private $_success;
         private $_rowCount;
+        private $_sendemail;
 
         public function __construct($username, $email, $password) {
             $this->_recordDataUser = new DataUserRecord($username, $password, $email);
@@ -31,6 +32,8 @@
                 $this->_sqlSignUpStatement->bindParam();
                 $this->_sqlSignUpStatement->execute();
                 $this->_success = $this->_sqlSignUpStatement->getExecuteSuccess();
+                $this->_sendemail = new SendMail($this->_recordDataUser);
+                $this->_sendemail->sendmail();
             }
         }
         
