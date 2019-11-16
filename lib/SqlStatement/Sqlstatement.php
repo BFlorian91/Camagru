@@ -45,11 +45,16 @@
             return $this->_executeSuccess;
         }
         
+        public function getRowCount() {
+            return $this->_rowCount;
+        }
+
         public function prepare() {
             $this->_pdoStatement = $this->_pdo->prepare($this->_sql);
         }
         public function execute() {
             $this->_executeSuccess = $this->_pdoStatement->execute();
+            $this->_rowCount = $this->_pdoStatement->rowCount();
             $errorMsg = $this->_pdoStatement->errorInfo();
             $this->_errorMsg = "there is an error ".$errorMsg[2];
         }

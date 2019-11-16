@@ -21,10 +21,10 @@
                     die ('good user added succefully ');
                 }
                 else {
-                    $this->_view = $this->view->buildPage();            
+                    $this->_view->buildPage();            
                 }
             }
-            $this->_view->buildPage();  
+            $this->_view->buildPage();
         }
     }
 ?>

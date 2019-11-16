@@ -4,10 +4,10 @@
             $ctrl = '';
             switch ($_GET['page']) {
                 case 'signup':
-                    $ctrl = new CtrlSignup();
+                    $ctrl = new CtrlSignUp();
                     break;
                 case 'signin':
-                    $ctrl = new CtrlSignin();
+                    $ctrl = new CtrlSignIn();
                     break;
                 default:
                     header("HTTP/1.0 404 Not Found");
