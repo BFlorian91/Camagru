@@ -4,6 +4,7 @@
         private $_hashPassword;
         private $_password;
         private $_email;
+        private $_confirmkey;
 
         public function __construct($username, $password, $email = null) {
             if ($email != null) {
@@ -47,7 +48,20 @@
             return $this->_email;
         }
 
+        public function getConfirmkey() {
+            return $this->_confirmkey; 
+        }
+
+        public function setConfirmkey() {
+            $keylength = 15;
+            $key = '';
+            for ($i=1; $i < $keylength ; $i++) { 
+                $key .= mt_rand(0,9);
+            }
+            $this->_confirmkey = $key;
+        }
         public function setDataUser($username, $password, $email = null) {
+            $this->setConfirmkey();
             $this->setPassword($password);
             $this->setUsername($username);
             $this->setHashPassword($password);

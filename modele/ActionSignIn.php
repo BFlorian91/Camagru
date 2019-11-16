@@ -23,7 +23,10 @@
         }
 
         public function setSuccesmsg($msg) {
-            $this->_successmsg = $msg;
+            $this->_successmsg = "<div style=".'margin-top:100px;'."><div class=".'alert alert-success alert-dismissible fade show'." role=".'alert'.">your are logged " . $msg . "</div>"
+            ."<button type=".'button'." class=".'close'." data-dismiss=".'alert'." aria-label=".'Close'.">
+            <span aria-hidden=".'true'.">&times;</span>
+          </button></div>";
         }
 
         public function getSuccessmsg() {
@@ -54,7 +57,7 @@
                 if ($checkPwd) {
                     session_start();
                     $_SESSION['user'] = $this->_recordDataUser->getUsername();
-                    $this->setSuccesmsg("your are logged ".$_SESSION['user']);
+                    $this->setSuccesmsg("your are logged " . $_SESSION['user']);
                 } else {
                     $this->setErrorMsg("invalid username or password");
                 }

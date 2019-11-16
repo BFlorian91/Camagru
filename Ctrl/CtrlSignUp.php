@@ -19,9 +19,8 @@
                 if ($this->_action->getSuccess()) {
                     die('ok');
                     die ('good user added succefully ');
-                }
-                else {
-                    $this->_view->buildPage();            
+                } else {
+                    echo "<div style=".'margin-top:100px;'.">invalid username or password</div>";
                 }
             }
             $this->_view->buildPage();

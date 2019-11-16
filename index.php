@@ -9,6 +9,7 @@
     require_once 'connectToBdd.php';
     require_once 'lib/DataUserRecord.php';
     require_once 'lib/SqlStatement/Sqlstatement.php';
+    require_once 'lib/SqlStatement/SqlStatementCheckBeforeSignUp.php';
     require_once 'lib/SqlStatement/SqlstatementSignUp.php';
     require_once 'lib/SqlStatement/SqlstatementSignIn.php';
     require_once 'modele/ActionSignUp.php';
