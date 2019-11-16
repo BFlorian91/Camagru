@@ -11,7 +11,7 @@
         private $_rowCount;
         // _pdo need to have a method call getpdo
         public function __construct($linkToDb, $record) {
-            $this->_sql = null;
+            $this->_sql = '';
             $this->_record = $record;
             $this->_pdo = $linkToDb->getPdo();
             $this->_pdoStatement = null;
@@ -46,11 +46,10 @@
         }
         
         public function prepare() {
-            $this->_pdoStatement = $this->_pdo->prepare($this->sql);
+            $this->_pdoStatement = $this->_pdo->prepare($this->_sql);
         }
         public function execute() {
             $this->_executeSuccess = $this->_pdoStatement->execute();
-            $this->_rowCount = $this->_pdoStatement->rowCount();
             $errorMsg = $this->_pdoStatement->errorInfo();
             $this->_errorMsg = "there is an error ".$errorMsg[2];
         }

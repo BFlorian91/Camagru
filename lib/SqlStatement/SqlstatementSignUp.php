@@ -3,18 +3,18 @@
         
         public function __construct($linkToDb, $record) {
             parent::__construct($linkToDb, $record);
-            $this->_sql = "INSERT INTO users(username, email, password) VALUES (:username, email, :password);";
+            $this->_sql = "INSERT INTO users(username, email, passwd) VALUES (:username, :email, :passwd);";
             $this->_successMsg = "you are succefully registered ! ";
         }
         
         public function bindParam() {
-            $this->_pdoStatement->bindParam(':username', $this->record->getUsername());
-            $this->_pdoStatement->bindParam(':email', $this->record->getEmail());
-            $this->_pdoStatement->bindParam(':password', $this->record->getPassword());
+            $this->_pdoStatement->bindParam(':username', $this->_record->getUsername());
+            $this->_pdoStatement->bindParam(':email', $this->_record->getEmail());
+            $this->_pdoStatement->bindParam(':passwd', $this->_record->getPassword());
         }
 
         public function getSql() {
-            return $this->sql;
+            return $this->_sql;
         }
     }
 ?>

@@ -20,7 +20,7 @@
             $options = [
                 'cost' => 12,
             ];
-            $this->password = password_hash($pass, PASSWORD_BCRYPT, $options);
+            $this->_password = password_hash($pass, PASSWORD_BCRYPT, $options);
         }
 
         public function getPassword() {
@@ -36,9 +36,9 @@
         }
 
         public function setDataUser($username, $email, $password) {
-            $this->_username = $this->setUsername($username);
-            $this->_password = $this->setPassword($password);
-            $this->_email = $this->setEmail($email);
+            $this->setUsername($username);
+            $this->setPassword($password);
+            $this->setEmail($email);
         }
  
     }
