@@ -10,6 +10,7 @@ class View
     $this->_items = [
       'Signin' => 'signin',
       'Signup' => 'signup',
+      'Montage' => 'montage',
       'Account' => 'account',
       'Logout' => 'logout'
     ];
@@ -47,7 +48,7 @@ class View
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav ml-auto">
         <?php foreach ($this->_items as $key => $val) {
-          if ($_SESSION['user'] == '' && $key !== 'Account' && $key !== 'Logout'): ?>
+          if ($_SESSION['user'] == '' && $key !== 'Account' && $key !== 'Logout' && $key !== 'Montage'): ?>
         <li class="nav-item">
           <a href="<?php echo "index.php?page=" . $val ?>" class="nav-link"
             style="cursor: pointer;"><?php echo $key ?></a>
