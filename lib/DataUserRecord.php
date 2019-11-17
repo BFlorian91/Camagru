@@ -6,11 +6,13 @@
         private $_email;
         private $_confirmkey;
 
-        public function __construct($username, $password, $email = null) {
-            if ($email != null) {
+        public function __construct($username, $password = null, $email = null) {
+            if ($email != null && $password != null) {
                 $this->setDataUser($username, $password, $email);
-            } else {
+            } else if ($email == null){
                 $this->setDataUser($username, $password);
+            } else if ($password == null && $email == null){
+                $this->setDataUser($username);
             }
         }
 
@@ -60,7 +62,7 @@
             }
             $this->_confirmkey = $key; 
         }
-        public function setDataUser($username, $password, $email = null) {
+        public function setDataUser($username, $password = null, $email = null) {
             $this->setConfirmkey();
             $this->setPassword($password);
             $this->setUsername($username);

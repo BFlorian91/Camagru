@@ -19,22 +19,15 @@
         }
 
         public function setMessage() {
-             $this->_message = '<html>
-                     <body>
-                         <div align="center">
-                             <a href="http://localhost:8888/index.php?page=confirm.php?username='.urlencode($this->_username).'&key'.$this->_key.'">Confirmez Votre compte</a>
-                         </div>
-                     </body>
-                 </html>';
+             $this->_message = 'http://localhost:8888/index.php?page=confirm.php?username='.urlencode($this->_username).'&key'.$this->_key.'"Veuillez clickez sur ce lien pour confirmez Votre compte';
         }
 
         public function setHeader() {
             $eol = "\r\n";
-            $separator = md5(time());
-            $this->_header = "From: name <noreply@bod.com>" . $eol;
             $this->_header .= "MIME-Version: 1.0" . $eol;
-            $this->_header .= "Content-Type: multipart/mixed; boundary=\"" . $separator . "\"" . $eol;
-            $this->_header .= "Content-Transfer-Encoding: 7bit" . $eol;
+            $this->_header = "From:Bod<thibaultdev682@gmail.com>" . '\n';
+            $this->_header .= "Content-Type:text/html; charset='utf-8'" . '\n';
+            $this->_header .= "Content-Transfer-Encoding: 8bit";
         }
 
         public function sendmail() {
