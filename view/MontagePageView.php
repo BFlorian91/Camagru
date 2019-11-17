@@ -10,6 +10,9 @@
         <div class="col-md-6 ml-4" style="min-height: 80vh; border: solid 1px">
           <video class="w-100 position-relative" id="video" playinline autoplay ></video>
           <canvas class="w-100" id="canvas"></canvas>
+          <div class="output">
+            <img alt="photo" id="photo">
+          </div>
         </div>
         <div class="col-md-2 ml-4" style="min-height: 80vh; border: solid 1px;">
           <h1 class="text-center" >Options</h1>
@@ -23,7 +26,7 @@
             <img width="100" src="../lib/filtre/lu1.png" alt="magi">
           </div>
           <button class="w-100 py-2 mb-4" id="startButton">Take photo</button> 
-          <a href="#" id="dl-btn" download="lol.png"><button class="w-100 py-2 mb-4" id="saveButton">Save photo</button></a>
+          <a href="#" id="dl-btn" download="lol.jpg"><span class="w-100 py-2 mb-4" id="saveButton">Save photo</span></a>
           <button class="w-100 py-2" id="clearButton">Clear photo</button> 
         </div>
       </div>
