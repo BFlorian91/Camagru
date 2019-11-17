@@ -19,7 +19,7 @@
         }
 
         public function setMessage() {
-             $this->_message = 'http://localhost:8888/index.php?page=confirm.php?username='.urlencode($this->_username).'&key'.$this->_key.'"Veuillez clickez sur ce lien pour confirmez Votre compte';
+             $this->_message = 'http://localhost:8888/index.php?page=confirm&username='.urlencode($this->_username).'&key='.$this->_key.'"Veuillez clickez sur ce lien pour confirmez Votre compte';
         }
 
         public function setHeader() {

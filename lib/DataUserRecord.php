@@ -5,6 +5,7 @@
         private $_password;
         private $_email;
         private $_confirmkey;
+        private $_confirm;
 
         public function __construct($username, $password = null, $email = null) {
             if ($email != null && $password != null) {
@@ -54,6 +55,14 @@
             return $this->_confirmkey; 
         }
 
+        public function getConfirm() {
+            return $this->_confirm;
+        }
+
+        public function setConfirm($values) { 
+            $this->_confirm = $values;
+        }
+
         public function setConfirmkey() {
             $keylength = 15;
             $key = '';
@@ -63,6 +72,7 @@
             $this->_confirmkey = $key; 
         }
         public function setDataUser($username, $password = null, $email = null) {
+            $this->setConfirm('0');
             $this->setConfirmkey();
             $this->setPassword($password);
             $this->setUsername($username);

@@ -50,6 +50,7 @@
         }
 
         public function prepare() {
+            debug($this->_sql);
             $this->_pdoStatement = $this->_pdo->prepare($this->_sql);
         }
         public function execute() {
