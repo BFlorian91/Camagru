@@ -8,8 +8,8 @@
      <h3>Edit Account</h3>
       <form method="POST" class="row justify-start flex-column">
         <div class="form-group">
-          <label name="username">Username</label>
-          <input type="text" class="form-control"
+          <label>Username</label>
+          <input name="username" type="text" class="form-control"
             placeholder="Enter New username">
         </div>
         <div class="form-group">
@@ -19,8 +19,8 @@
           <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
         <div class="form-group">
-          <label name="password">Password</label>
-          <input type="password" class="form-control" placeholder="Enter new password">
+          <label >Password</label>
+          <input name="password" type="password" class="form-control" placeholder="Enter new password">
         </div>
         <button type="submit" class="btn btn-dark">Submit</button>
       </form>
