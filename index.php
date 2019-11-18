@@ -9,6 +9,7 @@
     require_once 'view/GalleryView.php';
     require_once 'connectToBdd.php';
     require_once 'lib/DataUserRecord.php';
+    require_once 'lib/isLogged.php';
     require_once 'lib/SendMail.php';
     require_once 'lib/SqlStatement/Sqlstatement.php';
     require_once 'lib/SqlStatement/SqlStatementCheckBeforeSignUp.php';
@@ -16,15 +17,24 @@
     require_once 'lib/SqlStatement/SqlstatementSignIn.php';
     require_once 'lib/SqlStatement/SqlstatementCheckAlreadyConfirm.php';
     require_once 'lib/SqlStatement/SqlstatementConfirmAccount.php';
+    require_once 'lib/SqlStatement/SqlstatementEditEmail.php';
+    require_once 'lib/SqlStatement/SqlstatementEditPassword.php';
+    require_once 'lib/SqlStatement/SqlstatementEditUsername.php';
     require_once 'modele/ActionSignUp.php';
     require_once 'modele/ActionSignIn.php';
     require_once 'modele/ActionConfirmAccount.php';
+    require_once 'modele/ActionEditEmail.php';
+    require_once 'modele/ActionEditPassword.php';
+    require_once 'modele/ActionEditUsername.php';
     require_once 'Ctrl/Ctrl.php';
     require_once 'Ctrl/CtrlSignUp.php';
     require_once 'Ctrl/CtrlSignIn.php';
     require_once 'Ctrl/CtrlGallery.php';
     require_once 'Ctrl/CtrlMontage.php';
     require_once 'Ctrl/CtrlConfirmAccount.php';
+    require_once 'Ctrl/CtrlEditEmail.php';
+    require_once 'Ctrl/CtrlEditPassword.php';
+    require_once 'Ctrl/CtrlEditUsername.php';
 
     $ctrl = Ctrl::chooseCtrl();
     $ctrl->start();

@@ -18,6 +18,15 @@
                 case 'confirm':
                     $ctrl = new CtrlConfirmAccount();
                     break;
+                case 'editusername':
+                    $ctrl = new CtrlEditUsername();
+                    break;
+                case 'editemail':
+                    $ctrl = new CtrlEditEmail();
+                    break;
+                case 'editpassword':
+                    $ctrl = new CtrlEditPassword();
+                    break;
                 default:
                     header("HTTP/1.0 404 Not Found");
                     break;

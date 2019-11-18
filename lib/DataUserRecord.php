@@ -7,14 +7,8 @@
         private $_confirmkey;
         private $_confirm;
 
-        public function __construct($username, $password = null, $email = null) {
-            if ($email != null && $password != null) {
-                $this->setDataUser($username, $password, $email);
-            } else if ($email == null){
-                $this->setDataUser($username, $password);
-            } else if ($password == null && $email == null){
-                $this->setDataUser($username);
-            }
+        public function __construct($username = null, $password = null, $email = null) {
+            $this->setDataUser($username, $email, $password);
         }
 
         public function getPassword() {
