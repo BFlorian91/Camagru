@@ -27,6 +27,9 @@
                 case 'editpassword':
                     $ctrl = new CtrlEditPassword();
                     break;
+                case 'unsubemail':
+                    $ctrl = new CtrlUnSubEmail();
+                    break;
                 default:
                     header("HTTP/1.0 404 Not Found");
                     break;

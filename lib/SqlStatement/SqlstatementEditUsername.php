@@ -3,9 +3,13 @@
     
         public function __construct($linkToDb, $record) {
             parent::__construct($linkToDb, $record);
-            $username = $this->_record->getUsername();
-            $email = $this->_record->getEmail();
-            $this->_sql = "UPDATE users SET username='$username' WHERE email='$email';";            
+            $this->_sql = "UPDATE users SET username=:username WHERE email=:email;";            
+        }
+
+        public function bindParam() {
+            $this->_pdoStatement->bindParam(':username', $this->_record->getUsername());
+            $this->_pdoStatement->bindParam(':email', $this->_record->getEmail());
+        
         }
 
         public function getSql() {

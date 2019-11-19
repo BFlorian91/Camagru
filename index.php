@@ -7,6 +7,9 @@
     require_once 'view/ConfirmAccountView.php';
     require_once 'view/MontagePageView.php';
     require_once 'view/GalleryView.php';
+    require_once 'view/EditEmailView.php';
+    require_once 'view/EditPasswordView.php';
+    require_once 'view/EditUsernameView.php';
     require_once 'connectToBdd.php';
     require_once 'lib/DataUserRecord.php';
     require_once 'lib/isLogged.php';

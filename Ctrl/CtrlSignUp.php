@@ -10,14 +10,14 @@
 
         public function start() {
             if (isset($_POST['username']) || isset($_POST['email']) || isset($_POST['password'])) {
-                $username = $_POST['username'];
-                $password = $_POST['password'];
-                $email = $_POST['email'];
-                $this->_action = new ActionSignUp($username, $email, $password);
+                $username = htmlspecialchars($_POST['username']);
+                $password = htmlspecialchars($_POST['password']);
+                $email = htmlspecialchars($_POST['email']);
+                $this->_action = new ActionSignUp($username, $password, $email);
                 $this->_action->signUp();
-                debug($this->_action->getSuccess());
-                if ($this->_action->getSuccess()) {
-                    die ('good user added succefully ');
+                if ($this->_action->getSuccess() == true) {
+                    echo "<div style=".'margin-top:100px;'.">You are now register check your email to confirm your account</div>";
+
                 } else {
                     echo "<div style=".'margin-top:100px;'.">invalid username or password</div>";
                 }

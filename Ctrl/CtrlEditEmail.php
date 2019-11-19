@@ -7,9 +7,9 @@
         }
 
         public function start() {
-            if (isLogged() === true) {
+            if (isLogged() == true) {
                 if (isset($_POST['email'])) {
-                    $email = $_POST['email'];
+                    $email = htmlspecialchars($_POST['email']);
                     $this->_action = new ActionEditEmail($email);
                     $this->_action->editEmail();
                     if ($this->_action->getSuccess() == true) {
@@ -17,7 +17,7 @@
                         
                     }
                 } else {
-                    $this->_view = new EditMail();
+                    $this->_view = new EditEmail();
                     $this->_view->buildPage();
                 }
             }

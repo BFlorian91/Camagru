@@ -9,7 +9,7 @@
             if (isset($_GET['key']) && isset($_GET['username'])) {
                 $this->_view = new ConfirmAccount();
                 $key = $_GET['key'];
-                $username = $_GET['username'];
+                $username = urldecode($_GET['username']);
                 $this->_view = new ConfirmAccount();
                 $this->_action = new ActionConfirmAccount($key, $username);
                 if ($this->_action->checkIfAlreadyConfirm() == 0) {

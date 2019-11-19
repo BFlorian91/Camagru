@@ -19,6 +19,7 @@
 
         public function editUsername() {
             $this->_sqlStatementEditUsername->prepare();
+            $this->_sqlStatementEditUsername->bindParam();
             $this->_sqlStatementEditUsername->execute();
             $this->_success = $this->_sqlStatementEditUsername->getExecuteSuccess();
         }

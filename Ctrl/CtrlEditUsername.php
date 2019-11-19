@@ -9,8 +9,8 @@
         public function start() {
             if (isLogged() == true) {
                 if (isset($_POST['email']) && isset($_POST['username'])) {
-                    $username = $_POST['username'];
-                    $email = $_POST['email'];
+                    $username = htmlspecialchars($_POST['username']);
+                    $email = htmlspecialchars($_POST['email']);
                     $this->_action = new ActionEditUsername($username, $email);
                     $this->_action->editUsername();
                     if ($this->_action->getSuccess() == true) {

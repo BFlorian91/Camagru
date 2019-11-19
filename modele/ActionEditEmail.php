@@ -19,6 +19,7 @@
 
         public function editEmail() {
             $this->_sqlstatementEditEmail->prepare();
+            $this->_sqlstatementEditEmail->bindParam();
             $this->_sqlstatementEditEmail->execute();
             $this->_success = $this->_sqlstatementEditEmail->getExecuteSuccess();            
         }
