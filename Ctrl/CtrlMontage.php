@@ -1,6 +1,7 @@
 <?php
     class CtrlMontage extends Ctrl {
         private $montage;
+        
         public function __construct() {
             $this->montage = new MontagePage();
         }

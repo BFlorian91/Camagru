@@ -26,13 +26,14 @@
     require_once 'lib/SqlStatement/SqlstatementEditUsername.php';
     require_once 'lib/SqlStatement/SqlstatementCheckBeforeEditUsername.php';
     require_once 'lib/SqlStatement/SqlstatementUnSubEmail.php';
-    require_once 'modele/ActionSignUp.php';
-    require_once 'modele/ActionSignIn.php';
-    require_once 'modele/ActionConfirmAccount.php';
-    require_once 'modele/ActionEditEmail.php';
-    require_once 'modele/ActionEditPassword.php';
-    require_once 'modele/ActionEditUsername.php';
-    require_once 'modele/ActionUnSubEmail.php';
+    require_once 'model/ActionSignUp.php';
+    require_once 'model/ActionSignIn.php';
+    require_once 'model/ActionConfirmAccount.php';
+    require_once 'model/ActionEditEmail.php';
+    require_once 'model/ActionEditPassword.php';
+    require_once 'model/ActionEditUsername.php';
+    require_once 'model/ActionUnSubEmail.php';
+    require_once 'model/ActionGetImg.php';
     require_once 'Ctrl/Ctrl.php';
     require_once 'Ctrl/CtrlSignUp.php';
     require_once 'Ctrl/CtrlSignIn.php';
@@ -43,7 +44,7 @@
     require_once 'Ctrl/CtrlEditPassword.php';
     require_once 'Ctrl/CtrlEditUsername.php';
     require_once 'Ctrl/CtrlUnSubEmail.php';
-
+    require_once 'Ctrl/CtrlGetImg.php';
     $ctrl = Ctrl::chooseCtrl();
     $ctrl->start();
     echo $ctrl->getView();
