@@ -1,5 +1,5 @@
 <?php
-    class CtrlUnSubEmail {
+    class CtrlUnSubEmail extends Ctrl{
         private $_action;
 
         public function __construct() {
@@ -11,6 +11,11 @@
                 if (isset($_POST['switchNotificationMail'])) {
                     $this->_action = new ActionUnSubEmail();
                     $this->_action->unSubEmail();
+                    if ($this->_action->getSuccess() == true) {
+                        die('good email unsub');
+                    } else {
+                        die('problem with unsub email ');
+                    }
                 } else {
                     $this->_view = new EditAccount();
                     $this->_view->buildPage();

@@ -23,7 +23,6 @@
         }
          
         public function signUp() {
-            // faire un statement qui check si le user est deja present dans la bdd
             $this->_sqlCheckBeforeSignUp->prepare();
             $this->_sqlCheckBeforeSignUp->execute();
             $this->_rowCount = $this->_sqlCheckBeforeSignUp->getRowCount();

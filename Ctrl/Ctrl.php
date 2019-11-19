@@ -9,6 +9,9 @@
                 case 'signin':
                     $ctrl = new CtrlSignIn();
                     break;
+                case 'unsubemail': 
+                    $ctrl = new CtrlUnSubEmail();
+                    break;
                 case 'gallery':
                     $ctrl = new CtrlGallery();
                     break;
@@ -26,6 +29,9 @@
                     break;
                 case 'editpassword':
                     $ctrl = new CtrlEditPassword();
+                    break;
+                case 'resetpassword':
+                    $ctrl = new CtrlResetPassword();
                     break;
                 case 'unsubemail':
                     $ctrl = new CtrlUnSubEmail();

@@ -10,7 +10,7 @@
             $this->_email = $record->getEmail();
             $this->_username = $record->getUsername();
             $this->_key = $record->getConfirmkey();
-            $this->setMessage();
+            $this->setConfirmAccountMessage();
             $this->setHeader();
         }
 
@@ -18,7 +18,7 @@
             return $this->_message;
         }
 
-        public function setMessage() {
+        public function setConfirmAccountMessage() {
              $this->_message = 'http://localhost:8888/index.php?page=confirm&username='.urlencode($this->_username).'&key='.$this->_key.'"Veuillez clickez sur ce lien pour confirmez Votre compte';
         }
 
