@@ -5,11 +5,11 @@
         public function __construct() {
             $this->_action = null;
         }
-
+//session start dans le islogged 
         public function start() {
             if (isLogged() === true) {
                 if (isset($_POST['password'])) {
-                    $password = $_POST['password'];
+                    $password = htmlspecialchars($_POST['password']);
                     $this->_action = new ActionEditPassword($password);
                     $this->_action->editPassword();
                     if ($this->_action->getSuccess() == true) {

@@ -8,7 +8,7 @@
         private $_rowCount;
         private $_sendemail;
 
-        public function __construct($username, $email, $password) {
+        public function __construct($username, $password, $email) {
             $this->_recordDataUser = new DataUserRecord($username, $password, $email);
             $this->_connectToBdd = new ConnectToBdd();
             $this->_connectToBdd->connectToDb();
@@ -23,7 +23,6 @@
         }
          
         public function signUp() {
-            // faire un statement qui check si le user est deja present dans la bdd
             $this->_sqlCheckBeforeSignUp->prepare();
             $this->_sqlCheckBeforeSignUp->execute();
             $this->_rowCount = $this->_sqlCheckBeforeSignUp->getRowCount();
@@ -32,8 +31,10 @@
                 $this->_sqlSignUpStatement->bindParam();
                 $this->_sqlSignUpStatement->execute();
                 $this->_success = $this->_sqlSignUpStatement->getExecuteSuccess();
-                $this->_sendemail = new SendMail($this->_recordDataUser);
-                $this->_sendemail->sendmail();
+                if ($this->_success == true) {
+                    $this->_sendemail = new SendMail($this->_recordDataUser);
+                    $this->_sendemail->sendmail();
+                }
             }
         }
         

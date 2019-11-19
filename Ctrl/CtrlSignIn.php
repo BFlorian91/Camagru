@@ -11,8 +11,8 @@
 
         public function start() {
             if (isset($_POST['username']) && isset($_POST['password'])) {
-                $username = $_POST['username'];
-                $password = $_POST['password'];
+                $username = htmlspecialchars($_POST['username']);
+                $password = htmlspecialchars($_POST['password']);
                 $this->_action = new ActionSignIn($username, $password);
                 $this->_action->signIn();
                 if ($this->_action->getSuccess()) {

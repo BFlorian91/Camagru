@@ -8,7 +8,7 @@
         private $_confirm;
 
         public function __construct($username = null, $password = null, $email = null) {
-            $this->setDataUser($username, $email, $password);
+            $this->setDataUser($username, $password, $email);
         }
 
         public function getPassword() {
@@ -65,16 +65,18 @@
             }
             $this->_confirmkey = $key; 
         }
-        public function setDataUser($username, $password = null, $email = null) {
-            $this->setConfirm('0');
+        public function setDataUser($username = null, $password = null, $email = null) {
             $this->setConfirmkey();
-            $this->setPassword($password);
-            $this->setUsername($username);
-            $this->setHashPassword($password);
+            if ($password != null) {
+                $this->setPassword($password);
+                $this->setHashPassword($password);
+            }
+            if ($username != null) {
+                $this->setUsername($username);
+            }
             if ($email != null) {
                 $this->setEmail($email);
             }
         }
- 
     }
 ?>
