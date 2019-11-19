@@ -1,5 +1,14 @@
 <?php
 
+  debug($_POST);
+  debug($_POST);
+  debug($_POST);
+  debug($_POST);
+  debug($_POST);
+  debug($_POST['img']);
+  foreach ($_POST as $postlol) {
+    echo 'test: ' . $postlol . '<br />';
+  }
   class MontagePage extends View {
     
     public function bodyPage()
