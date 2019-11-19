@@ -3,6 +3,7 @@
     require_once 'view/View.php';
     require_once 'view/SigninView.php';
     require_once 'view/SignupView.php';
+    require_once 'view/GetImg.php';
     require_once 'view/EditAccountView.php';
     require_once 'view/ConfirmAccountView.php';
     require_once 'view/MontagePageView.php';
