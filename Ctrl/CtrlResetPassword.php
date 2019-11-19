@@ -1,5 +1,5 @@
 <?php
-    class CtrlResetPassword {
+    class CtrlResetPassword extends Ctrl{
         private $_action;
 
         public function __construct() {
@@ -9,7 +9,7 @@
         public function start() {
             if (isset($_POST['email'])) {
                 $this->_action = new ActionResetPassword();
-                $this->_action->restpassword();
+                $this->_action->resetpassword();
                 if ($this->_action->getSuccess() == true) {
                     die('your password is now reset');
                 } else {
