@@ -21,8 +21,10 @@
     require_once 'lib/SqlStatement/SqlstatementCheckAlreadyConfirm.php';
     require_once 'lib/SqlStatement/SqlstatementConfirmAccount.php';
     require_once 'lib/SqlStatement/SqlstatementEditEmail.php';
+    require_once 'lib/SqlStatement/SqlstatementCheckBeforeEditEmail.php';
     require_once 'lib/SqlStatement/SqlstatementEditPassword.php';
     require_once 'lib/SqlStatement/SqlstatementEditUsername.php';
+    require_once 'lib/SqlStatement/SqlstatementCheckBeforeEditUsername.php';
     require_once 'modele/ActionSignUp.php';
     require_once 'modele/ActionSignIn.php';
     require_once 'modele/ActionConfirmAccount.php';

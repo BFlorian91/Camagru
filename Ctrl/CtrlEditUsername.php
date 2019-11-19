@@ -8,10 +8,9 @@
 
         public function start() {
             if (isLogged() == true) {
-                if (isset($_POST['email']) && isset($_POST['username'])) {
+                if (isset($_POST['username'])) {
                     $username = htmlspecialchars($_POST['username']);
-                    $email = htmlspecialchars($_POST['email']);
-                    $this->_action = new ActionEditUsername($username, $email);
+                    $this->_action = new ActionEditUsername($username);
                     $this->_action->editUsername();
                     if ($this->_action->getSuccess() == true) {
                         echo "<p style='margin-top:150px;'>Username has been changed</p>";
