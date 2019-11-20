@@ -36,7 +36,7 @@ class View
     }
 
     public function menu()
-    { $_SESSION['user'] = 'florian';?>
+    { ?>
   <body>
   <nav class="navbar navbar-expand-md navbar-dark fixed-top py-4 bg-dark" id="main-nav">
     <div class="container">
