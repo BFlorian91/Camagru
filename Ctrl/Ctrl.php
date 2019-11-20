@@ -36,9 +36,6 @@
                 case 'unsubemail':
                     $ctrl = new CtrlUnSubEmail();
                     break;
-                case 'getimg':
-                    $ctrl = new CtrlGetImg();
-                    break;
                 default:
                     header("HTTP/1.0 404 Not Found");
                     break;

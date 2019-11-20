@@ -3,7 +3,6 @@
     require_once 'view/View.php';
     require_once 'view/SigninView.php';
     require_once 'view/SignupView.php';
-    require_once 'view/GetImg.php';
     require_once 'view/EditAccountView.php';
     require_once 'view/ConfirmAccountView.php';
     require_once 'view/MontagePageView.php';
@@ -34,7 +33,6 @@
     require_once 'model/ActionEditPassword.php';
     require_once 'model/ActionEditUsername.php';
     require_once 'model/ActionUnSubEmail.php';
-    require_once 'model/ActionGetImg.php';
     require_once 'Ctrl/Ctrl.php';
     require_once 'Ctrl/CtrlSignUp.php';
     require_once 'Ctrl/CtrlSignIn.php';
@@ -45,7 +43,6 @@
     require_once 'Ctrl/CtrlEditPassword.php';
     require_once 'Ctrl/CtrlEditUsername.php';
     require_once 'Ctrl/CtrlUnSubEmail.php';
-    require_once 'Ctrl/CtrlGetImg.php';
     $ctrl = Ctrl::chooseCtrl();
     $ctrl->start();
     echo $ctrl->getView();
