@@ -13,12 +13,6 @@
           <div class="output">
             <img alt="photo" id="photo">
           </div>
-          <p style="margin-top:250px;">
-          <?php
-            foreach ($_POST as $postlol) {
-              echo $postlol;
-            } ?>
-          </p>
         </div>
         <div class="col-md-2 ml-4" style="min-height: 80vh; border: solid 1px;">
           <h1 class="text-center">Options</h1>
@@ -31,8 +25,12 @@
             <img width="100" src="../lib/filtre/lu1.png" alt="magi">
             <img width="100" src="../lib/filtre/lu1.png" alt="magi">
           </div>
-          <button class="w-100 py-2 mb-4" id="startButton">Take photo</button> 
-          <a href="#" id="dl-btn" download="lol.jpg"><span class="w-100 py-2 mb-4" id="saveButton">Save photo</span></a>
+          <button class="w-100 py-2 mb-2" id="startButton">Take photo</button> 
+          <p id="test"></p></p>
+          <form method="post">
+            <input type="hidden" name="img" id="img" value="">
+            <input class="w-100 py-2 mb-2" type="submit" value="Save photo">
+          </form>
           <button class="w-100 py-2" id="clearButton">Clear photo</button> 
         </div>
       </div>
