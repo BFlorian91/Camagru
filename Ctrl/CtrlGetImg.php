@@ -8,7 +8,7 @@
         }
         
         public function start() {
-            if (isset($_POST)) {
+            if (isset($_POST) && !empty($_POST)) {
                 $this->_action = new ActionGetImg();
                 $this->_action->getImg();
                 $this->_success = $this->_action->getSuccess();

@@ -4,17 +4,15 @@
         
         public function __construct() {
             $this->montage = new MontagePage();
-            debug($_POST);
-            debug($_POST);
-            debug($_POST);
-            debug($_POST);
-            debug($_POST);
-            debug($_POST);
-            debug($_POST);
+
         }
 
         public function start() {
-            $this->_view = $this->montage->buildPage();
+            if (isset($_POST) && !empty($_POST)) {
+                debug($_POST);
+            } else {
+                $this->_view = $this->montage->buildPage();
+            }
         }
     }
 

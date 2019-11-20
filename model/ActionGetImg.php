@@ -11,8 +11,6 @@
         }
 
         public function getImg() {
-            debug($_POST);
-            debug($_GET);
             foreach ($_POST as $post_var) {
                 echo strtoupper($post_var) . "<br />";
             }

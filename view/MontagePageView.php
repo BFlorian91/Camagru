@@ -1,14 +1,5 @@
 <?php
 
-  debug($_POST);
-  debug($_POST);
-  debug($_POST);
-  debug($_POST);
-  debug($_POST);
-  debug($_POST['img']);
-  foreach ($_POST as $postlol) {
-    echo 'test: ' . $postlol . '<br />';
-  }
   class MontagePage extends View {
     
     public function bodyPage()
@@ -22,9 +13,15 @@
           <div class="output">
             <img alt="photo" id="photo">
           </div>
+          <p style="margin-top:250px;">
+          <?php
+            foreach ($_POST as $postlol) {
+              echo $postlol;
+            } ?>
+          </p>
         </div>
         <div class="col-md-2 ml-4" style="min-height: 80vh; border: solid 1px;">
-          <h1 class="text-center" >Options</h1>
+          <h1 class="text-center">Options</h1>
           <hr>
           <div class="row justify-content-center mb-4">
             <img width="100" src="../lib/filtre/lu1.png" alt="magi">
