@@ -44,6 +44,8 @@
     require_once 'Ctrl/CtrlEditPassword.php';
     require_once 'Ctrl/CtrlEditUsername.php';
     require_once 'Ctrl/CtrlUnSubEmail.php';
+    require_once 'Ctrl/CtrlEditAccount.php';
+    
     $ctrl = Ctrl::chooseCtrl();
     $ctrl->start();
     echo $ctrl->getView();

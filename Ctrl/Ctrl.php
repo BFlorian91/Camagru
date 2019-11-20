@@ -30,6 +30,9 @@
                 case 'editpassword':
                     $ctrl = new CtrlEditPassword();
                     break;
+                case 'editaccount':
+                    $ctrl = new CtrlEditAccount();
+                    break;
                 case 'resetpassword':
                     $ctrl = new CtrlResetPassword();
                     break;
