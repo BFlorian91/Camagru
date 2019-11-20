@@ -16,7 +16,7 @@
                     echo "<p style='margin-top:150px'> request is good </p>";
                 }
             } else {
-                $this->_view = new GetImg();
+                $this->_view = new MontagePage();
                 $this->_view->buildPage();
             }
         }
