@@ -16,7 +16,6 @@
 
     public function getImg()
     {
-      echo 'test: ' . $_POST['img'];
       $output_file = 'img.png';
       $base64_string = $_POST['img'];
         // open the output file for writing
