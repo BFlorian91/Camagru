@@ -12,12 +12,7 @@
           <input name="username" type="text" class="form-control"
             placeholder="Enter New username">
         </div>
-        <div class="form-group">
-          <label for="exampleInputEmail1">Email address</label>
-          <input type="email" class="form-control" name="email" aria-describedby="emailHelp"
-            placeholder="Enter new email">
-          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-        </div>
+        <a href="index.php?page=editemail"><button>Email change</button></a>
         <div class="form-group">
           <label >Password</label>
           <input name="password" type="password" class="form-control" placeholder="Enter new password">
