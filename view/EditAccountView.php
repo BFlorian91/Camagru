@@ -6,19 +6,10 @@
     { ?>
      <div class="container w-50" style="margin-top: 150px;">
      <h3>Edit Account</h3>
-      <form method="POST" class="row justify-start flex-column">
-        <div class="form-group">
-          <label>Username</label>
-          <input name="username" type="text" class="form-control"
-            placeholder="Enter New username">
-        </div>
-        <a href="index.php?page=editemail"><button>Email change</button></a>
-        <div class="form-group">
-          <label >Password</label>
-          <input name="password" type="password" class="form-control" placeholder="Enter new password">
-        </div>
-        <button type="submit" class="btn btn-dark">Submit</button>
-      </form>
+ 
+        <a href="index.php?page=editusername"><button class="btn btn-dark">Name change</button></a>
+        <a href="index.php?page=editemail"><button class="btn btn-dark">Email change</button></a>
+        <a href="index.php?page=editpassword"><button class="btn btn-dark">Password change</button></a>
       <hr class="py-4 mt-4" >
       <h3>User settings</h3>
       <p>Email</p>
