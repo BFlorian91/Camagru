@@ -16,6 +16,9 @@
           <label name="password">Password</label>
           <input type="password" class="form-control" placeholder="Enter password" name="password">
         </div>
+        <div class="form-group">
+          <a href="#">Forget password ?</a>
+        </div>
         <button type="submit" class="btn btn-dark">Submit</button>
       </form>
      </div>
