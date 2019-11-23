@@ -21,7 +21,7 @@
             $this->_sqlStatementResetPassword->prepare();
             $this->_sqlStatementResetPassword->bindParam();
             $this->_success = $this->_sqlStatementResetPassword->execute();
-
+        }
 
 
     }
