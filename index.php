@@ -15,6 +15,7 @@
     require_once 'lib/isLogged.php';
     require_once 'lib/SendMail.php';
     require_once 'lib/SqlStatement/Sqlstatement.php';
+    require_once 'lib/SqlStatement/SqlstatementIsUserUnSubEmail.php';
     require_once 'lib/SqlStatement/SqlStatementCheckBeforeSignUp.php';
     require_once 'lib/SqlStatement/SqlstatementSignUp.php';
     require_once 'lib/SqlStatement/SqlstatementSignIn.php';
@@ -34,6 +35,7 @@
     require_once 'model/ActionEditPassword.php';
     require_once 'model/ActionEditUsername.php';
     require_once 'model/ActionUnSubEmail.php';
+    require_once 'model/ActionIsUserUnSubEmail.php';
     require_once 'Ctrl/Ctrl.php';
     require_once 'Ctrl/CtrlSignUp.php';
     require_once 'Ctrl/CtrlSignIn.php';
