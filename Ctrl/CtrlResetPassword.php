@@ -7,6 +7,7 @@
         }
 
         public function start() {
+            
             if (isset($_POST['email'])) {
                 $this->_action = new ActionResetPassword();
                 $this->_action->resetpassword();
