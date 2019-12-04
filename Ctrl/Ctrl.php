@@ -39,6 +39,9 @@
                 case 'unsubemail':
                     $ctrl = new CtrlUnSubEmail();
                     break;
+                case '':
+                    $ctrl = new CtrlGallery();
+                    break;
                 default:
                     header("HTTP/1.0 404 Not Found");
                     break;

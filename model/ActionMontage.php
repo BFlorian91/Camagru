@@ -16,7 +16,8 @@
 
     public function getImg()
     {
-      $output_file = $_SESSION['username'] . str_replace(" ", "_", date("Y-m-d H:i:s")) . '.png';
+      $output_file = './img\/' . $_SESSION['username'] . str_replace(" ", "_", date("Y-m-d H:i:s")) . '.png';
+      
       $base64_string = $_POST['img'];
         // open the output file for writing
         $ifp = fopen( $output_file, 'wb' ); 
