@@ -41,6 +41,8 @@
                     break;
                 case 'installBdd':
                     $ctrl = new CtrlInstallBdd();
+                case '':
+                    $ctrl = new CtrlGallery();
                     break;
                 default:
                     header("HTTP/1.0 404 Not Found");

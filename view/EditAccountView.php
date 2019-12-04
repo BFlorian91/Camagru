@@ -14,7 +14,7 @@
       <h3>User settings</h3>
       <p>Email</p>
       <div class="custom-control custom-switch">
-        <input type="checkbox" class="custom-control-input" id="customSwitch1">
+        <input type="checkbox" class="custom-control-input" id="customSwitch">
         <label 
           class="custom-control-label"
           name="switchNotificationMail"
