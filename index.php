@@ -1,4 +1,5 @@
 <?php 
+    session_start();
     require_once 'lib/debug.php';
     require_once 'view/View.php';
     require_once 'view/SigninView.php';
