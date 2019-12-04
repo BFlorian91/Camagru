@@ -10,7 +10,9 @@
     require_once 'view/EditEmailView.php';
     require_once 'view/EditPasswordView.php';
     require_once 'view/EditUsernameView.php';
+    require_once 'view/InstallBddView.php';
     require_once 'connectToBdd.php';
+    require_once 'installBdd.php';
     require_once 'lib/DataUserRecord.php';
     require_once 'lib/isLogged.php';
     require_once 'lib/SendMail.php';
@@ -36,6 +38,7 @@
     require_once 'model/ActionEditUsername.php';
     require_once 'model/ActionUnSubEmail.php';
     require_once 'model/ActionIsUserUnSubEmail.php';
+    require_once 'model/ActionInstallBdd.php';
     require_once 'Ctrl/Ctrl.php';
     require_once 'Ctrl/CtrlSignUp.php';
     require_once 'Ctrl/CtrlSignIn.php';
@@ -47,6 +50,7 @@
     require_once 'Ctrl/CtrlEditUsername.php';
     require_once 'Ctrl/CtrlUnSubEmail.php';
     require_once 'Ctrl/CtrlEditAccount.php';
+    require_once 'Ctrl/CtrlInstallBdd.php';
     
     $ctrl = Ctrl::chooseCtrl();
     $ctrl->start();
