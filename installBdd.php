@@ -6,6 +6,7 @@
         private $_sqlCreateTable;
         private $_sqlCreateDatabase;
         private $_dsn;
+        private $_sql;
         private $_user;
         private $_passwd;
         private $_sqlSignUp;
@@ -47,14 +48,30 @@
             $this->_linkToDb = new ConnectToBdd();
             $this->_linkToDb->connectToDb();
             $pdo = $this->_linkToDb->getPdo();
-            $req = $pdo->prepare("INSERT INTO users (id, username, email, passwd, confirmkey) VALUES ('".$id."', '".$username."', '".$email."', '".$pass."', '".$confirmKey."' )");
-            $req->execute();
-        }        
+            if ($this->checkBeforeAddAdmin($pdo, $username) == true) {
+                $req = $pdo->prepare("INSERT INTO users (id, username, email, passwd, confirmkey) VALUES ('".$id."', '".$username."', '".$email."', '".$pass."', '".$confirmKey."' )");
+                $req->execute();
+            }
+        }
+
+        public function checkBeforeAddAdmin($pdo, $username) {
+            $this->_sql = "SELECT * FROM users WHERE username='$username'";
+            $req = $pdo->prepare($this->_sql);
+            $issuccess = $req->execute();
+            $data = $req->fetch(PDO::FETCH_ASSOC);
+            $count = $req->rowCount();
+            if ($count == 0) {
+                return true;
+            } else {
+                return false;
+            }
+        }
 
         public function setData() {
             $this->_dsn = 'mysql:port=8889;host=127.0.0.1';
             $this->_user = 'root';
             $this->_passwd = 'root';
+            $this->_sql = '';
             $this->_pdo = new PDO($this->_dsn, $this->_user, $this->_passwd);
             $this->_sqlCreateDatabase = null;
             $this->_sqlCreateTable = null;

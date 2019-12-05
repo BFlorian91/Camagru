@@ -41,6 +41,7 @@
                     break;
                 case 'installBdd':
                     $ctrl = new CtrlInstallBdd();
+                    break;
                 case '':
                     $ctrl = new CtrlGallery();
                     break;
