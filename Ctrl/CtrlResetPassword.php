@@ -16,7 +16,7 @@
         public function start() {
             if (isset($_GET['username']) && !empty($_GET['username'])) {
                 if (isset($_POST['password']) && isset($_POST['confirmPassword'])) {
-                    $this->_action = new ActionResetPassword($this->_username, $this->_password, null);
+                    $this->_action = new ActionResetPassword($_GET['username'], $_POST['password'], null);
                     $this->_action->resetpassword();
                 } else {
                     $this->_view = new ResetPassword();
@@ -28,7 +28,6 @@
             //$this->_action->resetpassword();
             $this->_action = new ActionResetPassword(null,null, $this->_email);
             $this->_username = $this->_action->getUsername();
-            debug($this->_username);
             $this->_action->setUsername($this->_username);
             $this->_action->sendEmailReset($this->_username);
 

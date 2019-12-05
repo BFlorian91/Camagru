@@ -8,17 +8,10 @@
         private $_rowCount;
         private $_data;
         private $_username;
+        private $_password;
 
-        public function __construct($email) {
-            $this->_linkToDb = new ConnectToBdd();
-            $this->_linkToDb->connectToDb();
-            $this->_record = new DataUserRecord(null, null, $email);
-            $this->_sqlStatementResetPassword = new SqlStatementResetPassword($this->_linkToDb, $this->_record);
-            $this->_sqlStatementGetUsername = new SqlstatementGetUsername($this->_linkToDb, $this->_record);
-            $this->_smail = null;
-            $this->_rowCount = null;
-            $this->_username = '';
-            $this->_data = [];
+        public function __construct($username = null, $password = null, $email = null)  {
+            $this->setData($username, $password, $email);
         }
 
         public function getSuccess() {
@@ -27,6 +20,10 @@
 
         public function setUsername($username) {
             $this->_username = $username;
+        }
+
+        public function setPassword($passwd) {
+            $this->_password = $passwd;
         }
 
         public function getUsername() {
@@ -57,11 +54,33 @@
         }
 
         public function resetpassword() {
+            $this->_record = new DataUserRecord($this->_username, $this->_password, null);
+            $this->_sqlStatementResetPassword = new SqlStatementResetPassword($this->_linkToDb, $this->_record);
             $this->_sqlStatementResetPassword->prepare();
             $this->_sqlStatementResetPassword->bindParam();
             $this->_sqlStatementResetPassword->execute();
+            if ($this->_sqlStatementResetPassword->getExecuteSuccess() == true) {
+                die('good');
+            } else {
+                die('not godd');
+            }
         }
 
+        public function setData($username = null, $password = null, $email = null) {
+            $this->_linkToDb = new ConnectToBdd();
+            $this->_linkToDb->connectToDb();
+            if ($username != null && $password != null) {
+                $this->_record = new DataUserRecord($username, $password, null);
+            } else {
+                $this->_record = new DataUserRecord(null, null, $email);
+            }
+            $this->_sqlStatementGetUsername = new SqlstatementGetUsername($this->_linkToDb, $this->_record);
+            $this->_smail = null;
+            $this->_rowCount = null;
+            $this->_password = null;
+            $this->_username = '';
+            $this->_data = [];
+        }
 
     }
 ?>
