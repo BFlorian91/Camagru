@@ -31,8 +31,6 @@
                     $this->_sendemail = new SendMail($this->_recordDataUser);
                     $this->_username = $this->_recordDataUser->getUsername();
                     $this->_key = $this->_recordDataUser->getConfirmkey();
-                    debug($this->_username);
-                    debug($this->_key);
                     $this->_sendemail->setMessage('http://localhost:8888/index.php?page=confirm&username='.urlencode($this->_username).'&key='.$this->_key.'"Veuillez clickez sur ce lien pour confirmez Votre compte');
                     $this->_sendemail->setObject('Confirmation de votre compte !');
                     $this->_sendemail->setHeader();

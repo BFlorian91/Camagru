@@ -16,7 +16,7 @@
         }
 
         public function getSuccess() {
-            return $this->_success;
+            return $this->_sqlStatementResetPassword->getSuccess();
         }
 
         public function setUsername($username) {
@@ -65,9 +65,9 @@
             $this->_sqlStatementResetPassword->bindParam();
             $this->_sqlStatementResetPassword->execute();
             if ($this->_sqlStatementResetPassword->getExecuteSuccess() == true) {
-                die('good');
+                echo "<div class='alert alert-success text-center mr-5 ml-5' style='margin-top: 150px;'><h5>Your password is now reset</h5></div>";
             } else {
-                die('not godd');
+                echo "<div class='alert alert-danger mr-5 ml-5' style='margin-top: 150px;'><h5>cannot reset your password</h5></div>";
             }
         }
 

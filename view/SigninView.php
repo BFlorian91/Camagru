@@ -6,7 +6,7 @@
     {
      ?>
      <div class="container w-25" style="margin-top: 150px;">
-      <form method="POST" class="row justify-center flex-column">
+      <form method="POST" action="/index.php?page=signin" class="row justify-center flex-column">
         <div class="form-group">
           <label >Username / Email</label>
           <input type="text" class="form-control" name="username"

@@ -18,6 +18,8 @@
                 if (isset($_POST['password']) && isset($_POST['confirmPassword'])) {
                     $this->_action = new ActionResetPassword($_GET['username'], $_POST['password'], null);
                     $this->_action->resetpassword();
+                    $this->_view = new Signin();
+                    $this->_view->buildpage();
                 } else {
                     $this->_view = new ResetPassword();
                     $this->_view->buildpage();
@@ -30,13 +32,6 @@
             $this->_username = $this->_action->getUsername();
             $this->_action->setUsername($this->_username);
             $this->_action->sendEmailReset($this->_username);
-
-            die('stop');
-            if ($this->_action->getSuccess() == true) {
-                    die('your password is now reset');
-                } else {
-                    die('it seem the request has failed');
-                }
             } else {
                 if (!isset($_GET['username'])) {
                     $this->_view = new EmailToResetPassword();

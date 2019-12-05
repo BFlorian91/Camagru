@@ -13,6 +13,7 @@
                 $username = htmlspecialchars($_POST['username']);
                 $password = htmlspecialchars($_POST['password']);
                 $email = htmlspecialchars($_POST['email']);
+                //check more on the password !
                 $this->_action = new ActionSignUp($username, $password, $email);
                 $this->_action->signUp();
                 if ($this->_action->getSuccess() == true) {
