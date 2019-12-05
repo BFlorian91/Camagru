@@ -9,6 +9,7 @@
           <label>Username</label>
           <input type="text" class="form-control" name="username"
             placeholder="Enter new username">
+            <button class="btn mt-2 btn-primary" type="submit">Submit</button>
         </div>
         <?php
     }

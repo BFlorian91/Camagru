@@ -61,8 +61,6 @@
         }
 
         public function resetpassword() {
-            $this->_record = new DataUserRecord($this->_username, $this->_password, null);
-            $this->_sqlStatementResetPassword = new SqlStatementResetPassword($this->_linkToDb, $this->_record);
             $this->_sqlStatementResetPassword->prepare();
             $this->_sqlStatementResetPassword->bindParam();
             $this->_sqlStatementResetPassword->execute();
@@ -78,14 +76,13 @@
             $this->_linkToDb->connectToDb();
             if ($username != null && $password != null) {
                 $this->_record = new DataUserRecord($username, $password, null);
+                $this->_sqlStatementResetPassword = new SqlStatementResetPassword($this->_linkToDb, $this->_record);
             } else {
                 $this->_record = new DataUserRecord(null, null, $email);
             }
             $this->_sqlStatementGetUsername = new SqlstatementGetUsername($this->_linkToDb, $this->_record);
             $this->_smail = null;
             $this->_rowCount = null;
-            $this->_password = null;
-            $this->_username = '';
             $this->_data = [];
             $this->_isUserSubEmail = null;
         }
