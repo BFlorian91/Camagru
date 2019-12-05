@@ -45,6 +45,7 @@
     require_once 'model/ActionIsUserUnSubEmail.php';
     require_once 'model/ActionInstallBdd.php';
     require_once 'model/ActionResetPassword.php';
+    require_once 'model/ActionLogout.php';
     require_once 'Ctrl/Ctrl.php';
     require_once 'Ctrl/CtrlSignUp.php';
     require_once 'Ctrl/CtrlSignIn.php';
@@ -58,6 +59,7 @@
     require_once 'Ctrl/CtrlEditAccount.php';
     require_once 'Ctrl/CtrlResetPassword.php';
     require_once 'Ctrl/CtrlInstallBdd.php';
+    require_once 'Ctrl/CtrlLogout.php';
     
     $ctrl = Ctrl::chooseCtrl();
     $ctrl->start();

@@ -42,6 +42,9 @@
                 case 'installBdd':
                     $ctrl = new CtrlInstallBdd();
                     break;
+                case 'logout':
+                    $ctrl = new CtrlLogout();
+                    break;
                 case '':
                     $ctrl = new CtrlGallery();
                     break;
