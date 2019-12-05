@@ -6,11 +6,11 @@
         private $_data;
         
 
-        public function __construct() {
-            $this->_record = new DataUserRecord();
+        public function __construct($username) {
+            $this->_record = new DataUserRecord($username, null, null);
             $this->_linkToDb = new ConnectToBdd();
             $this->_linkToDb->connectToDb();
-            $this->_sqlStatementIsUserUnSub = new SqlStatementIsUserUnSub($this->_linkToDb, $this->_record);
+            $this->_sqlStatementIsUserUnSub = new SqlstatementIsUserUnSubEmail($this->_linkToDb, $this->_record);
             $this->_data = [];
         }
 

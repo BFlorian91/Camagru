@@ -9,6 +9,7 @@
         private $_data;
         private $_username;
         private $_password;
+        private $_isUserSubEmail;
 
         public function __construct($username = null, $password = null, $email = null)  {
             $this->setData($username, $password, $email);
@@ -46,11 +47,17 @@
     }
 
         public function sendEmailReset() {
-            $this->_smail = new SendMail($this->_record);   
-            $this->_smail->setMessage('http://localhost:8888/index.php?page=resetpassword&username='.urlencode($this->_username).'"Veuillez clickez sur ce lien pour renitialiser votre mot de passe ');
-            $this->_smail->setObject("Renitialisation de mot de passe ");
-            $this->_smail->setHeader();
-            $this->_smail->sendmail();
+            $this->_isUserSubEmail = new ActionIsUserUnSubEmail($this->_username);
+            if ($this->_isUserSubEmail->isUserUnSub() == false) {
+                $this->_smail = new SendMail($this->_record);   
+                $this->_smail->setMessage('http://localhost:8888/index.php?page=resetpassword&username='.urlencode($this->_username).'"Veuillez clickez sur ce lien pour renitialiser votre mot de passe ');
+                $this->_smail->setObject("Renitialisation de mot de passe ");
+                $this->_smail->setHeader();
+                $this->_smail->sendmail();
+            } else {
+                echo "<h1 style='margin-top:150px'>Your are unsub we cant send u an email</h1>";
+            }
+
         }
 
         public function resetpassword() {
@@ -80,6 +87,7 @@
             $this->_password = null;
             $this->_username = '';
             $this->_data = [];
+            $this->_isUserSubEmail = null;
         }
 
     }

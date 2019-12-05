@@ -33,6 +33,9 @@
                 $this->_success = $this->_sqlSignUpStatement->getExecuteSuccess();
                 if ($this->_success == true) {
                     $this->_sendemail = new SendMail($this->_recordDataUser);
+                    $this->_sendemail->setMessage('http://localhost:8888/index.php?page=confirm&username='.urlencode($this->_username).'&key='.$this->_key.'"Veuillez clickez sur ce lien pour confirmez Votre compte');
+                    $this->_sendemail->setObject('Confirmation de votre compte !');
+                    $this->_sendemail->setHeader();
                     $this->_sendemail->sendmail();
                 }
             }
