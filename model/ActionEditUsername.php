@@ -18,9 +18,8 @@
         }
 
         public function getSuccess() {
-            return $this->_success;
+            return $this->_sqlStatementEditUsername->getExecuteSuccess();
         }
-
         public function editUsername() {
             $this->_sqlstatementCheckBeforeEditUsername->prepare();
             $this->_sqlstatementCheckBeforeEditUsername->bindParam();
@@ -30,11 +29,10 @@
                 $this->_sqlStatementEditUsername->prepare();
                 $this->_sqlStatementEditUsername->bindParam();
                 $this->_sqlStatementEditUsername->execute();
-                $this->_success = $this->_sqlStatementEditUsername->getExecuteSuccess();
-            } else {
-                $this->_success = false;
+                if ($this->_sqlStatementEditUsername->getExecuteSuccess() == true) {
+                    $_SESSION['user'] = htmlspecialchars($this->_record->getUsername());
+                }
             }
-            
         }
     }
 ?>
