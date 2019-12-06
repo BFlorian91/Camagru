@@ -39,6 +39,10 @@
             }
         }
 
+        public function checkSecu() {
+            
+        }
+ 
         public function setData($username, $password, $email) {
             $this->_recordDataUser = new DataUserRecord($username, $password, $email);
             $this->_connectToBdd = new ConnectToBdd();
