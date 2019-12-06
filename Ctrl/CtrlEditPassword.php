@@ -5,17 +5,22 @@
         public function __construct() {
             $this->_action = null;
         }
-//session start dans le islogged 
         public function start() {
             if (isLogged() === true) {
-                if (isset($_POST['password'])) {
+                if (isset($_POST['password']) && isset($_POST['confirmPassword'])) {
                     $password = htmlspecialchars($_POST['password']);
-                    $this->_action = new ActionEditPassword($password);
-                    $this->_action->editPassword();
-                    if ($this->_action->getSuccess() == true) {
-                        echo "<p style='margin-top:150px;'>Password has been changed</p>";
+                    $confirmPassword = htmlspecialchars($_POST['confirmPassword']);
+                    $this->_action = new ActionEditPassword($password, $confirmPassword);
+                    $this->_view = new EditPassword();
+                    $this->_view->buildpage();
+                    if ($this->_action->checkSecu() == true) {
+                        $this->_action->editPassword();
+                        if ($this->_action->getSuccess() == true) {
+                            echo '<div class="text-center alert alert-success mr-5 ml-5" style="margin-top:150px;"><h5>Your Password has been changed</h5></div>';
+                        }
                     }
-                } else {
+                }
+                else {
                     $this->_view = new EditPassword();
                     $this->_view->buildPage();
                 }

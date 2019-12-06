@@ -5,12 +5,14 @@
     require_once 'view/SigninView.php';
     require_once 'view/SignupView.php';
     require_once 'view/EditAccountView.php';
-    require_once 'view/ConfirmAccountView.php';
     require_once 'view/MontagePageView.php';
+    require_once 'view/ConfirmAccountView.php';
     require_once 'view/GalleryView.php';
     require_once 'view/EditEmailView.php';
     require_once 'view/EditPasswordView.php';
     require_once 'view/EditUsernameView.php';
+    require_once 'view/ResetPasswordView.php';
+    require_once 'view/EmailToResetPasswordView.php';
     require_once 'view/InstallBddView.php';
     require_once 'connectToBdd.php';
     require_once 'installBdd.php';
@@ -30,6 +32,8 @@
     require_once 'lib/SqlStatement/SqlstatementEditUsername.php';
     require_once 'lib/SqlStatement/SqlstatementCheckBeforeEditUsername.php';
     require_once 'lib/SqlStatement/SqlstatementUnSubEmail.php';
+    require_once 'lib/SqlStatement/SqlstatementResetPassword.php';
+    require_once 'lib/SqlStatement/SqlstatementGetUsername.php';
     require_once 'model/ActionSignUp.php';
     require_once 'model/ActionSignIn.php';
     require_once 'model/ActionMontage.php';
@@ -40,6 +44,8 @@
     require_once 'model/ActionUnSubEmail.php';
     require_once 'model/ActionIsUserUnSubEmail.php';
     require_once 'model/ActionInstallBdd.php';
+    require_once 'model/ActionResetPassword.php';
+    require_once 'model/ActionLogout.php';
     require_once 'Ctrl/Ctrl.php';
     require_once 'Ctrl/CtrlSignUp.php';
     require_once 'Ctrl/CtrlSignIn.php';
@@ -51,7 +57,9 @@
     require_once 'Ctrl/CtrlEditUsername.php';
     require_once 'Ctrl/CtrlUnSubEmail.php';
     require_once 'Ctrl/CtrlEditAccount.php';
+    require_once 'Ctrl/CtrlResetPassword.php';
     require_once 'Ctrl/CtrlInstallBdd.php';
+    require_once 'Ctrl/CtrlLogout.php';
     
     $ctrl = Ctrl::chooseCtrl();
     $ctrl->start();

@@ -6,7 +6,7 @@
         }
 
         public function bindParam() {
-            $this->_pdoStatement(":username", $this->_record->getUsername());
+            $this->_pdoStatement->bindParam(":username", $this->_record->getUsername());
         }
 
         public function getSql() {

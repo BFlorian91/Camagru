@@ -30,13 +30,14 @@
             return $this->_rowCount;
         }
 
+        public function getSuccess() {
+            return $this->_issuccess;
+        }
+
         public function confirmAccount() {
             $this->_sqlConfirmAccount->prepare();
             $this->_sqlConfirmAccount->execute();
             $this->_issuccess = $this->_sqlConfirmAccount->getExecuteSuccess();
-            if ($this->_issuccess == true) {
-                die('good your account has been confirmed');
-            }
           }
     }
 ?>

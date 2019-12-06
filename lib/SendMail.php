@@ -5,17 +5,31 @@
         private $_email;
         private $_username;
         private $_key;
+        private $_record;
+        private $_object;
 
         public function __construct($record) {
-            $this->_email = $record->getEmail();
-            $this->_username = $record->getUsername();
-            $this->_key = $record->getConfirmkey();
-            $this->setConfirmAccountMessage();
-            $this->setHeader();
+            $this->_record = $record;
+            $this->_email = $this->_record->getEmail();
+            $this->_username = $this->_record->getUsername();
+            $this->_key = $this->_record->getConfirmkey();
+            $this->_object = '';
+        }
+
+        public function getObject() {
+            return $this->_object;
+        }
+
+        public function setObject($obj) {
+            $this->_object = $obj;
         }
 
         public function getMessage() {
             return $this->_message;
+        }
+
+        public function setMessage($msg) {
+            $this->_message = $msg;
         }
 
         public function setConfirmAccountMessage() {
@@ -31,11 +45,7 @@
         }
 
         public function sendmail() {
-            if (mail($this->_email, "Confirmation de votre compte", $this->_message, $this->_header)) {
-                echo '<p style="margin-top:100px;"> email is sent</p>';
-            } else {
-                echo '<p style="margin-top:100px;"> email is not sent</p>';
-            }
+            mail($this->_email, $this->_object, $this->_message, $this->_header); 
         }
     }
 ?>

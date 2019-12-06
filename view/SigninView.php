@@ -6,7 +6,7 @@
     {
      ?>
      <div class="container w-25" style="margin-top: 150px;">
-      <form method="POST" class="row justify-center flex-column">
+      <form method="POST" action="/index.php?page=signin" class="row justify-center flex-column">
         <div class="form-group">
           <label >Username / Email</label>
           <input type="text" class="form-control" name="username"
@@ -17,7 +17,7 @@
           <input type="password" class="form-control" placeholder="Enter password" name="password">
         </div>
         <div class="form-group">
-          <a href="#">Forget password ?</a>
+          <a href="index.php?page=resetpassword">Forget password ?</a>
         </div>
         <button type="submit" class="btn btn-dark">Submit</button>
       </form>

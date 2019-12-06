@@ -6,9 +6,10 @@
         private $_email;
         private $_confirmkey;
         private $_confirm;
+        private $_confirmPassword;
 
-        public function __construct($username = null, $password = null, $email = null) {
-            $this->setDataUser($username, $password, $email);
+        public function __construct($username = null, $password = null, $email = null, $confirmPassword = null) {
+            $this->setDataUser($username, $password, $email, $confirmPassword);
         }
 
         public function getPassword() {
@@ -65,7 +66,42 @@
             }
             $this->_confirmkey = $key; 
         }
-        public function setDataUser($username = null, $password = null, $email = null) {
+
+        public function checkSecu() {
+            $password = $this->getPassword();
+            $email = $this->getEmail();
+            $confirmPassword = $this->getConfirmPassword();
+            if ($email != null) {
+                if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                    echo '<div class="text-center alert alert-danger mr-5 ml-5" style="margin-top:150px;"><h5>must be a valide email</h5></div>';
+                    return false;
+                }
+            }
+            if (strlen($password) < 8) {
+                echo '<div class="text-center alert alert-danger mr-5 ml-5" style="margin-top:150px;"><h5>Password must contain 8 characteres</h5></div>';
+                return false;
+            }
+            if ($confirmPassword != null) {
+                if ($confirmPassword != $password) {
+                    echo '<div class="text-center alert alert-danger mr-5 ml-5" style="margin-top:150px;"><h5>Password and confirm password must match </h5></div>';
+                    return false;   
+                }
+            }
+            return true;
+        }
+
+        public function setConfirmPassword($confirmPassword) {
+            $this->_confirmPassword = $confirmPassword;
+        }
+
+        public function getConfirmPassword() {
+            return $this->_confirmPassword;
+        }
+
+        public function setDataUser($username = null, $password = null, $email = null, $confirmPassword = null) {
+            if ($confirmPassword != null) {
+                $this->setConfirmPassword($confirmPassword);
+            }
             $this->setConfirmkey();
             if ($password != null) {
                 $this->setPassword($password);

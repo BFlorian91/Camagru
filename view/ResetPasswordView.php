@@ -1,6 +1,6 @@
 <?php
 
-  class EditPassword extends View {
+  class ResetPassword extends View {
     public function bodyPage()
     { ?>
      <div class="container w-25" style="margin-top: 150px;">

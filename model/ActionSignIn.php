@@ -23,10 +23,7 @@
         }
 
         public function setSuccesmsg($msg) {
-            $this->_successmsg = "<div style=".'margin-top:100px;'."><div class=".'alert alert-success alert-dismissible fade show'." role=".'alert'.">your are logged " . $msg . "</div>"
-            ."<button type=".'button'." class=".'close'." data-dismiss=".'alert'." aria-label=".'Close'.">
-            <span aria-hidden=".'true'.">&times;</span>
-          </button></div>";
+            $this->_successmsg = "<div class='text-center alert alert-success mr-5 ml-5' style='margin-top:150px;'><h5>".$msg."</h5></div>";
         }
 
         public function getSuccessmsg() {

@@ -13,14 +13,16 @@
                 $username = htmlspecialchars($_POST['username']);
                 $password = htmlspecialchars($_POST['password']);
                 $email = htmlspecialchars($_POST['email']);
+                //check more on the password !
                 $this->_action = new ActionSignUp($username, $password, $email);
-                $this->_action->signUp();
+                if ($this->_action->checkSecu() == true) {
+                    $this->_action->signUp();
                 if ($this->_action->getSuccess() == true) {
-                    echo "<div style=".'margin-top:100px;'.">You are now register check your email to confirm your account</div>";
-
+                    echo '<div class="text-center alert alert-success mr-5 ml-5" style="margin-top:150px;"><h5>Check your mail to confirm your account </h5></div>';
                 } else {
-                    echo "<div style=".'margin-top:100px;'.">invalid username or password</div>";
+                    echo '<div class="text-center alert alert-danger mr-5 ml-5" style="margin-top:150px;"><h5>invalid data</h5></div>';
                 }
+             }
             }
             $this->_view->buildPage();
         }

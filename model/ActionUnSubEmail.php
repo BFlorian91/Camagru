@@ -19,7 +19,7 @@
 
         public function unSubEmail() {
             $this->_sqlStatementUnSubEmail->prepare();
-            $this->_success = $this->_sqlStatementUnSubEmail->execute();
+            $this->_sqlStatementUnSubEmail->execute();
         }
 
     }

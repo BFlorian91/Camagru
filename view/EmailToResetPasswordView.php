@@ -1,16 +1,16 @@
 <?php
 
-  class EditEmail extends View {
+  class EmailToResetPassword extends View {
     public function bodyPage()
     { ?>
       <div class="container w-25" style="margin-top: 150px;">
-      <form method="POST" class="row justify-center flex-column">
+      <form method="POST" action="" class="row justify-center flex-column">
         <div class="form-group">
           <label>Email address</label>
           <input type="email" class="form-control" name="email" aria-describedby="emailHelp"
             placeholder="Enter new email">
-            <button class="btn mt-2 btn-primary" type="submit">Submit</button>
           <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          <button class="btn btn-md btn-primary" type="submit">Submit</button>
         </div>
         <?php 
      }
