@@ -57,7 +57,13 @@
             } else {
                 echo "<h1 style='margin-top:150px'>Your are unsub we cant send u an email</h1>";
             }
+        }
 
+        public function checksecu() {
+            if ($this->_record->checkSecu() == false) {
+                return false;
+            }
+            return true;
         }
 
         public function resetpassword() {
