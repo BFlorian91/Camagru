@@ -14,8 +14,6 @@
             $this->_username = $this->_record->getUsername();
             $this->_key = $this->_record->getConfirmkey();
             $this->_object = '';
-           // $this->setConfirmAccountMessage();
-            //$this->setHeader();
         }
 
         public function getObject() {
@@ -47,11 +45,7 @@
         }
 
         public function sendmail() {
-            if (mail($this->_email, $this->_object, $this->_message, $this->_header)) {
-                echo '<p style="margin-top:100px;"> email is sent</p>';
-            } else {
-                echo '<p style="margin-top:100px;"> email is not sent</p>';
-            }
+            mail($this->_email, $this->_object, $this->_message, $this->_header); 
         }
     }
 ?>

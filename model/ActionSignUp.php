@@ -40,7 +40,8 @@
         }
 
         public function checkSecu() {
-            
+            //check the email with filder_validate et checker la taille du password > 8 and more secu :) check also if confirm password
+            // is equal to password ! 
         }
  
         public function setData($username, $password, $email) {

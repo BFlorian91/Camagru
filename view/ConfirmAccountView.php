@@ -3,7 +3,8 @@
   class ConfirmAccount extends View {
     function bodyPage()
     { ?>
-      <h1 style="margin-top: 150px" class="text-center text-info">Account Confirm</h1>
+      <div class="text-center alert alert-success mr-5 ml-5" style="margin-top:150px;"><h5>Your account has been confirmed you can signin</h5></div>
+
       <?php
     }
   }
