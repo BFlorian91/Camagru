@@ -24,8 +24,18 @@
                 confirme varchar(10) NOT NULL DEFAULT 0,
                 subemail varchar(10) NOT NULL DEFAULT 1
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8;');
-            $this->_installBdd->setSqlCreateTableImage('CREATE TABLE camagru.images ( id INT NULL AUTO_INCREMENT , usename VARCHAR(100) NOT NULL , images VARCHAR(255) NOT NULL, likes INT NOT NULL , PRIMARY KEY (id)) ENGINE = InnoDB;');
-            $this->_installBdd->setSqlCreateTableComment('CREATE TABLE camagru.comment ( id INT NOT NULL AUTO_INCREMENT , username VARCHAR(100) NOT NULL , comment VARCHAR(300) NOT NULL , comment_date DATETIME NOT NULL , PRIMARY KEY (id)) ENGINE = InnoDB;');
+            $this->_installBdd->setSqlCreateTableImage('CREATE TABLE camagru.images (
+                id INT NOT NULL AUTO_INCREMENT ,
+                username VARCHAR(100) NOT NULL ,
+                images VARCHAR(255) NOT NULL,
+                likes INT NOT NULL ,
+                PRIMARY KEY (id)) ENGINE = InnoDB;');
+            $this->_installBdd->setSqlCreateTableComment('CREATE TABLE camagru.comment (
+                id INT NOT NULL AUTO_INCREMENT ,
+                username VARCHAR(100) NOT NULL ,
+                comment VARCHAR(300) NOT NULL ,
+                comment_date DATETIME NOT NULL ,
+                PRIMARY KEY (id)) ENGINE = InnoDB;');
             $this->_installBdd->installBdd();
             $this->_success = true;
         }
