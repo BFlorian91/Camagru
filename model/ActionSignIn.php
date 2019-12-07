@@ -33,7 +33,7 @@
         }
 
         public function setErrorMsg($msg) {
-            $this->_errormsg = $msg;
+            $this->_errormsg = "<div class='text-center alert alert-danger mr-5 ml-5' style='margin-top:150px;'><h5>".$msg."</h5></div>";
         }
 
         public function getErrorMsg() {
@@ -42,6 +42,10 @@
 
         public function getSuccess() {
             return $this->_success;
+        }
+
+        public function getSignInSuccess() {
+            return $this->_sqlSignInStatement->getExecuteSuccess();
         }
 
         public function checkBeforeSignIn() {
@@ -55,16 +59,18 @@
                 if ($this->_data['confirme'] == '1') { 
                     return true;
                 } else {
-                    echo "<div class='text-center mr-5 ml-5 alert alert-danger' style='margin-top:150px;' ><h5>You must have a confirmed account to signin</h5></div>";
+                    $this->_errormsg = "<div class='text-center mr-5 ml-5 alert alert-danger' style='margin-top:150px;' ><h5>You must have a confirmed account to signin</h5></div>";
                     return false;
                 }
+            } else {
+                $this->_errormsg = "<div class='text-center mr-5 ml-5 alert alert-danger' style='margin-top:150px;' ><h5>Username or password incorrect </h5></div>";
+                return false;
             }
         }
 
         public function signIn() {
             $this->_sqlSignInStatement->prepare();
             $this->_sqlSignInStatement->execute();
-            $this->_success = $this->_sqlSignInStatement->getExecuteSuccess();
             $this->_rowCount = $this->_sqlSignInStatement->getRowCount();
             if ($this->_rowCount > 0 && $this->_success == true) {
                 $this->_sqlSignInStatement->fetch();
@@ -74,12 +80,10 @@
                     session_start();
                     $_SESSION['user'] = $this->_recordDataUser->getUsername();
                     $this->setSuccesmsg("your are logged " . $_SESSION['user']);
+                    $this->_success = true;
                 } else {
                     $this->setErrorMsg("invalid username or password");
                 }
-
-            } else {
-                $this->setErrorMsg("there is a probleme when log");
             }
         }
     }

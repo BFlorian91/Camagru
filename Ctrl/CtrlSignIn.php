@@ -16,11 +16,13 @@
                 $this->_action = new ActionSignIn($username, $password);
                 if ($this->_action->checkBeforeSignIn() == true) {
                     $this->_action->signIn();
-                    if ($this->_action->getSuccess()) {
+                    if ($this->_action->getSignInSuccess() == true && $this->_action->getSuccess() == true) {
                         echo $this->_action->getSuccessmsg();
                     } else {
                         echo $this->_action->getErrorMsg();
                     }
+                } else {
+                    echo $this->_action->getErrorMsg();
                 }
             }
             $this->_view->buildPage();
