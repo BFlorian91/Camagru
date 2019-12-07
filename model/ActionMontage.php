@@ -20,8 +20,6 @@
       $this->_username = htmlspecialchars($_SESSION['user']);
       $this->_outputfile = null;
       $this->_data = [];
-      array_push($this->_data, $this->_outputfile, $this->_username, 0);
-      $this->_sqlStatementAddImgToDb = new SqlstatementAddImgToDb($this->_linkToDb, $this->_record, $this->_data);
     }
 
     public function getOutputFile() {
@@ -44,6 +42,8 @@
     }
 
     public function addImgToDb() {
+      array_push($this->_data, $this->_outputfile, $this->_username, 0);
+      $this->_sqlStatementAddImgToDb = new SqlstatementAddImgToDb($this->_linkToDb, $this->_record, $this->_data);
       $this->_sqlStatementAddImgToDb->prepare();
       $this->_sqlStatementAddImgToDb->bindParam();
       $this->_sqlStatementAddImgToDb->execute();
