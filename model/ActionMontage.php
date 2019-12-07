@@ -2,36 +2,50 @@
 
   class ActionMontage {
 
-    private $img;
-    private $_success;
+    private $_img;
+    private $_username;
+    private $_outputfile;
+    private $_sqlStatementAddImgToDb;
+    private $_linkToDb;
+    private $_data;
+    private $_record;
+
     public function __construct()
     {
-      $this->img = null;
-      $this->_success = null;  
+      $this->_linkToDb = new ConnectToBdd();
+      $this->_linkToDb->connectToDb();
+      $this->_sqlStatementAddImgToDb = null;
+      $this->_img = null;
+      $this->_record = null;
+      $this->_username = htmlspecialchars($_SESSION['user']);
+      $this->_outputfile = null;
+      $this->_data = [];
+      array_push($this->_data, $this->_outputfile, $this->_username, 0);
+      $this->_sqlStatementAddImgToDb = new SqlstatementAddImgToDb($this->_linkToDb, $this->_record, $this->_data);
     }
 
-    public function getSuccess() {
-      return $this->_success;
+    public function getOutputFile() {
+      return $this->_outputfile;
+    }
+
+    public function getAddToDbSuccess() {
+      return $this->_sqlStatementAddImgToDb->getExecuteSuccess();
     }
 
     public function getImg()
     {
-      $output_file = './img/' . $_SESSION['username'] . str_replace(" ", "_", date("Y-m-d H:i:s")) . '.png';
+      $this->_outputfile = './img/' . $_SESSION['username'] . str_replace(" ", "_", date("Y-m-d H:i:s")) . '.png';
       
       $base64_string = $_POST['img'];
-        // open the output file for writing
-      $ifp = fopen( $output_file, 'wb' ); 
-
-      // split the string on commas
-      // $data[ 0 ] == "data:image/png;base64"
-      // $data[ 1 ] == <actual base64 string>
+      $ifp = fopen($this->_outputfile, 'wb' ); 
       $data = explode( ',', $base64_string );
-      // we could add validation here with ensuring count( $data ) > 1
       fwrite( $ifp, base64_decode( $data[1] ) );
-
-      // clean up the file resource
       fclose( $ifp ); 
+    }
 
-      return $output_file; 
+    public function addImgToDb() {
+      $this->_sqlStatementAddImgToDb->prepare();
+      $this->_sqlStatementAddImgToDb->bindParam();
+      $this->_sqlStatementAddImgToDb->execute();
     }
   }
