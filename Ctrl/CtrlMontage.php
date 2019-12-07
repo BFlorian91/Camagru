@@ -7,7 +7,7 @@
         }
 
         public function start() {
-            if (isLogged()) {
+            if (isLogged() == true) {
                 $this->_action = new ActionMontage();
                 $this->_action->getImg();
                 $this->_action->addImgToDb();
