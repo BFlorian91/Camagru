@@ -6,7 +6,7 @@ class MontagePage extends View
   public function bodyPage()
   {
     ?>
-    <div class="container col" style="margin-top: 150px">
+    <div class="container col mt-4">
       <div class="row justify-content-center">
         <div class="col-md-6 ml-4" style="min-height: 80vh; border: solid 1px">
           <video class="w-100 position-relative" id="video" playinline autoplay></video>

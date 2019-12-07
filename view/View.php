@@ -39,7 +39,6 @@ class View
     { ?>
   <body>
   <nav class="navbar navbar-expand-md navbar-dark fixed-top py-4 bg-dark" id="main-nav">
-    <div class="container">
       <a href="index.php?page=gallery" class="navbar-brand">
         <h3 class="d-inline align-middle">Camagru</h3>
       </a>
@@ -62,8 +61,8 @@ class View
           <?php endif; } ?>
         </ul>
       </div>
-    </div>
   </nav>
+  <div style="height: 100px"></div>
 
 
   <?php

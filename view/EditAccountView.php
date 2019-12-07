@@ -4,7 +4,7 @@
 
     public function bodyPage()
     { ?>
-     <div class="container w-50" style="margin-top: 150px;">
+     <div class="container w-50 mt-4">
      <h3>Edit Account</h3>
  
         <a href="index.php?page=editusername"><button class="btn btn-dark">Name change</button></a>

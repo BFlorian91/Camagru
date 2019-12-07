@@ -3,7 +3,7 @@
   class EmailToResetPassword extends View {
     public function bodyPage()
     { ?>
-      <div class="container w-25" style="margin-top: 150px;">
+      <div class="container w-25 mt-4">
       <form method="POST" action="" class="row justify-center flex-column">
         <div class="form-group">
           <label>Email address</label>
