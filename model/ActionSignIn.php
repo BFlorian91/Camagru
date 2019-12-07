@@ -3,6 +3,7 @@
         private $_recordDataUser;
         private $_connectToBdd;
         private $_sqlSignInStatement;
+        private $_sqlCheckIfAccountConfirm;
         private $_success;
         private $_rowCount;
         private $_successmsg;
@@ -14,6 +15,7 @@
             $this->_connectToBdd = new ConnectToBdd();
             $this->_connectToBdd->connectToDb();
             $this->_sqlSignInStatement = new SqlstatementSignIn($this->_connectToBdd, $this->_recordDataUser);
+            $this->_sqlCheckIfAccountConfirm = new SqlstatementCheckIfAccountConfirm($this->_connectToBdd, $this->_recordDataUser);
             $this->_success = false;
             $this->_rowCount = null;
             $this->_successmsg = '';
@@ -40,6 +42,23 @@
 
         public function getSuccess() {
             return $this->_success;
+        }
+
+        public function checkBeforeSignIn() {
+            $this->_sqlCheckIfAccountConfirm->prepare();
+            $this->_sqlCheckIfAccountConfirm->execute();
+            $this->_rowCount = $this->_sqlCheckIfAccountConfirm->getRowCount();
+            $this->_success = $this->_sqlCheckIfAccountConfirm->getExecuteSuccess();
+            if ($this->_rowCount > 0 && $this->_success == true) {
+                $this->_sqlCheckIfAccountConfirm->fetch();
+                $this->_data = $this->_sqlCheckIfAccountConfirm->getDataArray();
+                if ($this->_data['confirme'] == '1') { 
+                    return true;
+                } else {
+                    echo "<div class='text-center mr-5 ml-5 alert alert-danger' style='margin-top:150px;' ><h5>You must have a confirmed account to signin</h5></div>";
+                    return false;
+                }
+            }
         }
 
         public function signIn() {

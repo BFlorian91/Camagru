@@ -35,6 +35,7 @@
     require_once 'lib/SqlStatement/SqlstatementResetPassword.php';
     require_once 'lib/SqlStatement/SqlstatementGetUsername.php';
     require_once 'lib/SqlStatement/SqlstatementAddImgToDb.php';
+    require_once 'lib/SqlStatement/SqlstatementCheckIfAccountConfirm.php';
     require_once 'model/ActionSignUp.php';
     require_once 'model/ActionSignIn.php';
     require_once 'model/ActionMontage.php';
