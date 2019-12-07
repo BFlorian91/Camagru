@@ -1,12 +1,19 @@
 <?php
     class CtrlGallery extends Ctrl{
-        private $gallery;
+
+        private $_action;
+        private $_images;
         public function __construct() {
-            $this->gallery = new Gallery();
+            $this->_action = null;
+            $this->_images = null;
         }
         
         public function start() {
-            $this->_view = $this->gallery->buildPage();
+            $this->_action = new ActionGallery();
+            $this->_action->getAllImage();
+            $this->_images = $this->_action->getData()['images'];
+            $this->_view = new Gallery($this->_images);
+            $this->_view->buildPage();
         }
     }
 ?>
