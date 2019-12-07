@@ -11,8 +11,8 @@
         private $_password;
         private $_isUserSubEmail;
 
-        public function __construct($username = null, $password = null, $email = null)  {
-            $this->setData($username, $password, $email);
+        public function __construct($username = null, $password = null, $email = null, $confirmPassword = null)  {
+            $this->setData($username, $password, $email, $confirmPassword);
         }
 
         public function getSuccess() {
@@ -54,6 +54,7 @@
                 $this->_smail->setObject("Renitialisation de mot de passe ");
                 $this->_smail->setHeader();
                 $this->_smail->sendmail();
+                echo '<div class="text-center alert alert-success" style="margin-top:150px;"><h5>A reset password has been sent check your email</h5></div>';
             } else {
                 echo "<h1 style='margin-top:150px'>Your are unsub we cant send u an email</h1>";
             }
@@ -71,27 +72,26 @@
             $this->_sqlStatementResetPassword->bindParam();
             $this->_sqlStatementResetPassword->execute();
             if ($this->_sqlStatementResetPassword->getExecuteSuccess() == true) {
-                echo "<div class='alert alert-success text-center mr-5 ml-5' style='margin-top: 150px;'><h5>Your password is now reset</h5></div>";
+                echo "<div class='alert alert-success text-center mr-5 ml-5' style='margin-top: 150px;'><h5>Your password is now reset you can signin</h5></div>";
             } else {
                 echo "<div class='alert alert-danger mr-5 ml-5' style='margin-top: 150px;'><h5>cannot reset your password</h5></div>";
             }
         }
 
-        public function setData($username = null, $password = null, $email = null) {
+        public function setData($username = null, $password = null, $email = null, $confirmPassword = null) {
             $this->_linkToDb = new ConnectToBdd();
             $this->_linkToDb->connectToDb();
-            if ($username != null && $password != null) {
-                $this->_record = new DataUserRecord($username, $password, null);
+            if ($username != null && $password != null && $confirmPassword != null) {
+                $this->_record = new DataUserRecord($username, $password, null, $confirmPassword);
                 $this->_sqlStatementResetPassword = new SqlStatementResetPassword($this->_linkToDb, $this->_record);
             } else {
-                $this->_record = new DataUserRecord(null, null, $email);
+                $this->_record = new DataUserRecord(null, null, $email, null);
+                $this->_sqlStatementGetUsername = new SqlstatementGetUsername($this->_linkToDb, $this->_record);
+                $this->_smail = null;
+                $this->_rowCount = null;
+                $this->_data = [];
+                $this->_isUserSubEmail = null;
             }
-            $this->_sqlStatementGetUsername = new SqlstatementGetUsername($this->_linkToDb, $this->_record);
-            $this->_smail = null;
-            $this->_rowCount = null;
-            $this->_data = [];
-            $this->_isUserSubEmail = null;
         }
-
     }
 ?>
