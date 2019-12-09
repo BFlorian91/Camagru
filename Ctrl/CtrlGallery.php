@@ -7,6 +7,8 @@ class CtrlGallery extends Ctrl {
     private $_commentnumber;
     private $_like;
     private $_comment;
+    private $_data;
+
     public function __construct()
     {
         $this->_action = null;
@@ -17,6 +19,7 @@ class CtrlGallery extends Ctrl {
         $this->_like = null;
         $this->_comment = null;
         $this->_commentnumber = null;
+        $this->_data = [];
     }
 
     public function start()
@@ -49,10 +52,18 @@ class CtrlGallery extends Ctrl {
                         $this->_actionLikeImg->getResultGetLike();
                     }
                 }
-    
+                $this->_data = [
+                    'username' => $value['username'],
+                    'images' => $value['images'],
+                    'likes' => $this->_like,
+                ];
+                foreach ($this->_comment as $values) {
+                    array_push($this->_data, ['comment' => $values['comment'], 'comment_date' => $values['comment_date']]);
+                }
             }    
         }
-        $this->_view = new Gallery($this->_images, $this->_like, $this->_comment);
+
+        $this->_view = new Gallery($this->_data);
         $this->_view->buildPage();
     }
 }
