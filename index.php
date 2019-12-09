@@ -44,6 +44,7 @@
     require_once 'model/ActionSignUp.php';
     require_once 'model/ActionSignIn.php';
     require_once 'model/ActionMontage.php';
+    require_once 'model/ActionUpload.php';
     require_once 'model/ActionConfirmAccount.php';
     require_once 'model/ActionEditEmail.php';
     require_once 'model/ActionEditPassword.php';

@@ -30,18 +30,18 @@ class MontagePage extends View
           <!-- <p id="test"></p> -->
           <form method="post">
             <input type="hidden" name="img" id="img" value="">
-            <input class="w-100 py-2 mb-2" type="submit" value="Save photo">
+            <input class="w-100 py-2 mb-2" name="takePhoto" type="submit" value="Save photo">
           </form>
           <button class="w-100 py-2" id="clearButton">Clear photo</button>
           <form action="#" method="post" enctype="multipart/form-data">
-            Select image to upload:
-            <input class="w-100 py-2 mb-2" type="file" name="imgUpload" id="fileToUpload">
-            <input class="w-100 py-2 mb-2" type="submit" value="Upload Image" name="submit">
+            Select image to upload: 
+            <input class="w-100 py-2 mb-2" type="file" name="imgUpload">
+            <input class="w-100 py-2 mb-2" type="submit" value="Upload Image" name="uploadPhoto">
           </form>
         </div>
       </div>
     </div>
-    <script src="../lib/js/camera.js"></script>
+    <script src="lib/js/camera.js"></script>
 <?php
   }
 }

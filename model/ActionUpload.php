@@ -3,45 +3,49 @@
     class ActionUpload {
 
         private $_dir;
+        private $_extAllowed;
+        private $_outputfile;
 
         public function __construct()
         {
-            $this->_dir = "img/";
+            $this->_dir = "lib/img/";
+            $this->_extAllowed = array('jpg', 'jpeg', 'png', 'gif');
+            $this->_outputfile = null;
         }
        
-        public function check() 
-        {
-           switch ($_FILES['imgUpload']['error']) {
-            case UPLOAD_ERR_OK:
-                break;
-            case UPLOAD_ERR_NO_FILE:
-                throw new RuntimeException('No file sent.');
-            case UPLOAD_ERR_INI_SIZE:
-            case UPLOAD_ERR_FORM_SIZE:
-                throw new RuntimeException('Exceeded filesize limit.');
-            default:
-                throw new RuntimeException('Unknown errors.');
-            }
-
-            if ($_FILES['imgUpload']['size'] > 5000000) {
-                throw new RuntimeException('Exceeded filesize limit.');
-            }
-        }
         public function getImg()
         {
-            $img = $_POST['imgUpload'];
-            $check = getimagesize($_FILES["imgUpload"]["tmp_name"]);
-            $upload = 1;
-            if ($check !== false) {
-                echo "It's an image +1";
-                $upload = 1;
-            } else {
-                echo "It's not a valid image";
-                $upload = 0;
+            if(isset($_FILES['imgUpload'])){
+                $errors= array();
+                $file_name = $_FILES['imgUpload']['name'];
+                $file_size =$_FILES['imgUpload']['size'];
+                $file_tmp =$_FILES['imgUpload']['tmp_name'];
+                $file_type=$_FILES['imgUpload']['type'];
+                $file_ext=strtolower(end(explode('.',$_FILES['imgUpload']['name'])));
+                print_r($file_name);
+                
+                $extensions= array("jpeg","jpg","png");
+                
+                if(in_array($file_ext,$extensions) === false){
+                   $errors[] = "extension not allowed, please choose a JPEG or PNG file.";
+                }
+                
+                if($file_size > 2097152){
+                   $errors[] = 'File size must be excately 2 MB';
+                }
+                
+                if(empty($errors) == true){
+                   move_uploaded_file($file_tmp, "lib/img/" . $file_name);
+                   echo "Success";
+                }else{
+                   print_r($errors);
+                }
+             }
             }
-            if ($_FILES["imgUpload"]["size"] > 500000) {
-                echo "sorry image is to large...";
-                $upload = 0;
-            }
-        }
+      
+            // $base64_string = $_FILES['imgUpload'];
+            // $ifp = fopen($this->_outputfile, 'wb' ); 
+            // $data = explode( ',', $base64_string );
+            // fwrite( $ifp, base64_decode( $data[1] ) );
+            // fclose( $ifp ); 
     }

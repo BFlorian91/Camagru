@@ -1,15 +1,21 @@
 <?php
     class CtrlMontage extends Ctrl {
 
-        private $_action;       
+        private $_action;
+        private $_actionUpload;
         public function __construct() {
             $this->_action = null;
+            $this->_actionUpload = null;
         }
 
         public function start() {
             if (isLogged() == true) {
                 $this->_action = new ActionMontage();
-                $this->_action->getImg();
+                $this->_actionUpload = new ActionUpload();
+                if ($_POST['takePhoto'])
+                    $this->_action->getImg();
+                elseif ($_POST['uploadPhoto'])
+                    $this->_actionUpload->getImg();
                 $this->_action->addImgToDb();
                 $this->_view = new MontagePage();
                 $this->_view->buildPage();
