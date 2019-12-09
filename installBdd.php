@@ -56,6 +56,7 @@
                 $this->_pdo->exec($this->_sqlCreateDatabase);
             }
             $this->_pdo->exec($this->_sqlCreateTable);
+            $this->_pdo->exec($this->_sqlCreateTableUsers);
             $this->_pdo->exec($this->_sqlCreateTableImage);
             $this->_pdo->exec($this->_sqlCreateTableComment);
             $id = '0';
