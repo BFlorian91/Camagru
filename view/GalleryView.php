@@ -18,7 +18,7 @@
           <?php
           foreach ($this->_images as $key => $value) {
             echo '<form method="post">
-            <img name="'.$value['images'].' "src="'.$value.'">              
+            <img name="'.$value['images'].' "src="'.$value['images'].'">              
               <button type="submit" name="like">Like</button>
               <p>'. $this->_likes.'<p>
               ';
