@@ -32,7 +32,7 @@
 
     public function getImg()
     {
-      $this->_outputfile = './img/' . $_SESSION['username'] . str_replace(" ", "_", date("Y-m-d H:i:s")) . '.png';
+      $this->_outputfile = './lib/img/' . $_SESSION['username'] . str_replace(" ", "_", date("Y-m-d H:i:s")) . '.png';
       
       $base64_string = $_POST['img'];
       $ifp = fopen($this->_outputfile, 'wb' ); 
