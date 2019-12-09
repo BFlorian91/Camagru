@@ -19,16 +19,16 @@
             echo '<form method="post">
               <img src="'.$this->_images.'">              
                 <button type="submit" name="like">Like</button>
-                <textarea name="comment" cols="100" rows="5" placeholder="had a comment"></textarea>
-                <button type="submit" class="btn btn-primmary">Send</button>
                 <p>'. $this->_likes.'<p>
                 ';
                   foreach ($this->_comment as $key => $value) {
                     echo '<p>'.$value['comment'].'</p>';
                     echo '<p>'.$value['username'].'</p>';
-                    echo '<p>'.$value['comment_date'].'</p>';
+                    echo '<p>'.$value['comment'].'</p>';
                   }
                 echo '
+                <textarea name="comment" cols="100" rows="5" placeholder="had a comment"></textarea>
+                <button type="submit" class="btn btn-primmary">Send</button>
               </form>';
           ?>
       </div>

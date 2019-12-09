@@ -28,7 +28,7 @@
             $this->_sqlStatementGetAllImage->execute();
             $this->_rowCount = $this->_sqlStatementGetAllImage->getRowCount();
             if ($this->_rowCount > 0 && $this->_sqlStatementGetAllImage->getExecuteSuccess() == true) {
-                $this->_sqlStatementGetAllImage->fetchAll();
+                $this->_sqlStatementGetAllImage->fetch();
                 $this->_data = $this->_sqlStatementGetAllImage->getDataArray();
             }
         }
