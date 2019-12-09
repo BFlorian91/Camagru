@@ -59,6 +59,9 @@
             $this->_errorMsg = "there is an error ".$errorMsg[2];
         }
         
+        public function fetchAll() {
+            $this->_dataArray = $this->_pdoStatement->fetchAll(PDO::FETCH_ASSOC);
+        }
         public function fetch() {
             $this->_dataArray = $this->_pdoStatement->fetch(PDO::FETCH_ASSOC);
         }

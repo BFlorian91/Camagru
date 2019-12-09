@@ -32,6 +32,7 @@
                 PRIMARY KEY (id)) ENGINE = InnoDB;');
             $this->_installBdd->setSqlCreateTableComment('CREATE TABLE camagru.comment (
                 id INT NOT NULL AUTO_INCREMENT ,
+                images VARCHAR(255) NOT NULL,
                 username VARCHAR(100) NOT NULL ,
                 comment VARCHAR(300) NOT NULL ,
                 comment_date DATETIME NOT NULL ,

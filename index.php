@@ -37,6 +37,10 @@
     require_once 'lib/SqlStatement/SqlstatementAddImgToDb.php';
     require_once 'lib/SqlStatement/SqlstatementCheckIfAccountConfirm.php';
     require_once 'lib/SqlStatement/SqlstatementGetAllImages.php';
+    require_once 'lib/SqlStatement/SqlstatementAddLikeImg.php';
+    require_once 'lib/SqlStatement/SqlstatementGetLikeImg.php';
+    require_once 'lib/SqlStatement/SqlstatementGetCommentImg.php';
+    require_once 'lib/SqlStatement/SqlstatementAddCommentImg.php';
     require_once 'model/ActionSignUp.php';
     require_once 'model/ActionSignIn.php';
     require_once 'model/ActionMontage.php';
@@ -50,6 +54,8 @@
     require_once 'model/ActionResetPassword.php';
     require_once 'model/ActionLogout.php';
     require_once 'model/ActionGallery.php';
+    require_once 'model/ActionLikeImg.php';
+    require_once 'model/ActionCommentImg.php';
     require_once 'Ctrl/Ctrl.php';
     require_once 'Ctrl/CtrlSignUp.php';
     require_once 'Ctrl/CtrlSignIn.php';

@@ -67,7 +67,7 @@
             $this->_linkToDb->connectToDb();
             $pdo = $this->_linkToDb->getPdo();
             if ($this->checkBeforeAddAdmin($pdo, $username) == true) {
-                $req = $pdo->prepare("INSERT INTO users (id, username, email, passwd, confirmkey) VALUES ('".$id."', '".$username."', '".$email."', '".$pass."', '".$confirmKey."' )");
+                $req = $pdo->prepare("INSERT INTO users (id, username, email, passwd, confirmkey, confirme) VALUES ('".$id."', '".$username."', '".$email."', '".$pass."', '".$confirmKey."', ".'1'.")");
                 $req->execute();
             }
         }
