@@ -20,7 +20,7 @@
             echo '<form method="post">
             <img name="'.$value['images'].' "src="'.$value['images'].'">              
               <button type="submit" name="like">Like</button>
-              <p>'. $this->_likes.'<p>
+              <p>'. $value['likes'].'<p>
               ';
                 foreach ($this->_comment as $keye => $values) {
                   echo '<p>'.$values['comment'].'</p>';
