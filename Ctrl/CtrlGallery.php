@@ -57,9 +57,12 @@ class CtrlGallery extends Ctrl {
                 'username' => $value['username'],
                 'images' => $value['images'],
                 'likes' => $this->_like,
+                'commentAndDate' => [],
+
             ];
+
             foreach ($this->_comment as $values) {
-                array_push($this->_data, ['comment' => $values['comment'], 'comment_date' => $values['comment_date']]);
+                array_push($this->_data['commentAndDate'], $values['comment'], $values['comment_date']);
             }
         }
         $this->_view = new Gallery($this->_data);
