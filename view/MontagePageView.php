@@ -19,14 +19,18 @@ class MontagePage extends View
           <h1 class="text-center">Options</h1>
           <hr>
           <div class="row justify-content-center mb-4">
-            <img width="100" src="../lib/filtre/lu1.png" alt="magi">
-            <img width="100" src="../lib/filtre/lu1.png" alt="magi">
-            <img width="100" src="../lib/filtre/lu1.png" alt="magi">
-            <img width="100" src="../lib/filtre/lu1.png" alt="magi">
-            <img width="100" src="../lib/filtre/lu1.png" alt="magi">
-            <img width="100" src="../lib/filtre/lu1.png" alt="magi">
+            <a href="index.php?page=montage&filter=1"><img width="100" src="../lib/filtre/lu1.png" alt="magi"></a>
+            <a href="index.php?page=montage&filter=2"><img width="100" src="../lib/filtre/lu1.png" alt="magi"></a>
+            <a href="index.php?page=montage&filter=3"><img width="100" src="../lib/filtre/lu1.png" alt="magi"></a>
+            <a href="index.php?page=montage&filter=4"><img width="100" src="../lib/filtre/lu1.png" alt="magi"></a>
+            <a href="index.php?page=montage&filter=5"><img width="100" src="../lib/filtre/lu1.png" alt="magi"></a>
+            <a href="index.php?page=montage&filter=6"><img width="100" src="../lib/filtre/lu1.png" alt="magi"></a>
           </div>
-          <button class="w-100 py-2 mb-2" id="startButton">Take photo</button>
+          <?php if (!isset($_GET['filter']) && empty($_GET['filter'])): ?>
+            <button disabled class="w-100 py-2 mb-2" id="startButton">Take photo</button>
+          <?php elseif ($_GET['filter'] > 0 || $_GET['filter'] < 7): ?>
+            <button class="w-100 py-2 mb-2" id="startButton">Take photo</button>
+          <?php endif; ?>
           <!-- <p id="test"></p> -->
           <form method="post">
             <input type="hidden" name="img" id="img" value="">
