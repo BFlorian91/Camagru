@@ -53,18 +53,24 @@ class CtrlGallery extends Ctrl {
                     }
                 }
             }
-            $this->_data = [
-                'username' => $value['username'],
-                'images' => $value['images'],
-                'likes' => $this->_like,
-                'commentAndDate' => [],
-
-            ];
-
-            foreach ($this->_comment as $values) {
-                array_push($this->_data['commentAndDate'], $values['comment'], $values['comment_date']);
-            }
         }
+        $this->_data = [
+            'username' => $value['username'],
+            'images' => [],
+            'likes' => $this->_like,
+            'commentAndDate' => [],
+        ];
+        foreach ($this->_images as $values) {
+            array_push($this->_data['images'], $values['images']);
+        }
+        foreach ($this->_comment as $values) {
+            array_push($this->_data['commentAndDate'], $values['comment'], $values['comment_date']);
+        }
+        debug($this->_data);
+        debug($this->_data);
+        debug($this->_data);
+        debug($this->_data);
+        debug($this->_data);
         $this->_view = new Gallery($this->_data);
         $this->_view->buildPage();
     }
