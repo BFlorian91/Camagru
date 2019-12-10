@@ -14,12 +14,8 @@
       <h3>User settings</h3>
       <p>Email</p>
       <div class="custom-control custom-switch">
-        <input type="checkbox" class="custom-control-input" id="customSwitch">
-        <label 
-          class="custom-control-label"
-          name="switchNotificationMail"
-          for="customSwitch1">Toggle for activate/desactivate mail notification when your image was commented.
-        </label>
+        <input type="checkbox" class="custom-control-input" name="switchNotificationMail" id="customSwitch1">
+        <label class="custom-control-label" for="customSwitch1">Toggle for activate/desactivate mail notification when your image was commented.</label>
       </div>
      </div>
 <?php
