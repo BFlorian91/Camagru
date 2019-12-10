@@ -15,9 +15,8 @@ class Gallery extends View
       foreach ($this->_data as $key => $values) {
         if ($key == 'images') {
           echo '<form method="post">
-          <img "src ='.$values.'">              
+          <img "src='.$values.'">              
         ';
-        debug($values);
         }
     }
       echo '
