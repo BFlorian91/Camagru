@@ -20,11 +20,11 @@ class MontagePage extends View
           <hr>
           <div class="row justify-content-center mb-4">
             <a href="index.php?page=montage&filter=1"><img width="100" src="../lib/filtre/lu1.png" alt="magi"></a>
-            <a href="index.php?page=montage&filter=2"><img width="100" src="../lib/filtre/lu1.png" alt="magi"></a>
-            <a href="index.php?page=montage&filter=3"><img width="100" src="../lib/filtre/lu1.png" alt="magi"></a>
-            <a href="index.php?page=montage&filter=4"><img width="100" src="../lib/filtre/lu1.png" alt="magi"></a>
-            <a href="index.php?page=montage&filter=5"><img width="100" src="../lib/filtre/lu1.png" alt="magi"></a>
-            <a href="index.php?page=montage&filter=6"><img width="100" src="../lib/filtre/lu1.png" alt="magi"></a>
+            <a href="index.php?page=montage&filter=2"><img width="100" src="../lib/filtre/russ.png" alt="magi"></a>
+            <a href="index.php?page=montage&filter=3"><img width="100" src="../lib/filtre/homer.png" alt="magi"></a>
+            <a href="index.php?page=montage&filter=4"><img width="100" src="../lib/filtre/marge.png" alt="magi"></a>
+            <a href="index.php?page=montage&filter=5"><img width="100" src="../lib/filtre/Rick.png" alt="magi"></a>
+            <a href="index.php?page=montage&filter=6"><img width="100" src="../lib/filtre/bender.png" alt="magi"></a>
           </div>
           <?php if (!isset($_GET['filter']) && empty($_GET['filter'])): ?>
             <button disabled class="w-100 py-2 mb-2" id="startButton">Take photo</button>
