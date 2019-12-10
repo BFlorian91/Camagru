@@ -52,17 +52,16 @@ class CtrlGallery extends Ctrl {
                         $this->_actionLikeImg->getResultGetLike();
                     }
                 }
-                $this->_data = [
-                    'username' => $value['username'],
-                    'images' => $value['images'],
-                    'likes' => $this->_like,
-                ];
-                foreach ($this->_comment as $values) {
-                    array_push($this->_data, ['comment' => $values['comment'], 'comment_date' => $values['comment_date']]);
-                }
-            }    
+            }
+            $this->_data = [
+                'username' => $value['username'],
+                'images' => $value['images'],
+                'likes' => $this->_like,
+            ];
+            foreach ($this->_comment as $values) {
+                array_push($this->_data, ['comment' => $values['comment'], 'comment_date' => $values['comment_date']]);
+            }
         }
-
         $this->_view = new Gallery($this->_data);
         $this->_view->buildPage();
     }
