@@ -18,8 +18,11 @@ class Gallery extends View
               <button type="submit" name="like">Like</button>
                   <p>' . $this->_data['likes'] . '<p>
                   <p>' . $this->_data['username'] . '</p>
-                  <p>' . $this->_data['comment'] . '</p>
-                  <p>' . $this->_data['comment_date'] . '</p>
+                  ';
+          foreach ($this->_data['commentAndDate'] as $value) {
+            echo '<p>' . $value . '</p>';
+          }
+          echo '
               <textarea name="comment" cols="100" rows="5" placeholder="had a comment"></textarea>
               <button type="submit" class="btn btn-primmary">Send</button>
             </form>';
