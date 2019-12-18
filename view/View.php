@@ -48,16 +48,16 @@ class View
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav ml-auto">
           <?php foreach ($this->_items as $key => $val) {
-            if ($_SESSION['user'] === '' && $key !== 'Account' && $key !== 'Logout' && $key !== 'Montage'): ?>
-          <li class="nav-item">
-            <a href="<?php echo "index.php?page=" . $val ?>" class="nav-link"
-              style="cursor: pointer;"><?php echo $key ?></a>
-          </li>
-          <?php elseif ($_SESSION['user'] !== '' && $key !== 'Signin' && $key !== 'Signup'): ?>
-          <li class="nav-item">
-            <a href="<?php echo "index.php?page=" . $val ?>" class="nav-link"
-              style="cursor: pointer;"><?php echo $key ?></a>
-          </li>
+            if (!isset($_SESSION['user']) && empty($_SESSION['user']) && $key !== 'Account' && $key !== 'Logout' && $key !== 'Montage'): ?>
+              <li class="nav-item">
+                <a href="<?php echo "index.php?page=" . $val ?>" class="nav-link"
+                   style="cursor: pointer;"><?php echo $key ?></a>
+              </li>
+          <?php elseif (isset($_SESSION['user']) && !empty(trim($_SESSION['user'])) && $key !== 'Signin' && $key !== 'Signup'): ?>
+              <li class="nav-item">
+                <a href="<?php echo "index.php?page=" . $val ?>" class="nav-link"
+                   style="cursor: pointer;"><?php echo $key ?></a>
+              </li>
           <?php endif; } ?>
         </ul>
       </div>

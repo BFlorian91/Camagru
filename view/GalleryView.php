@@ -7,6 +7,7 @@ class Gallery extends View
   {
     $this->_data = $data;
   }
+  
   public function bodyPage()
   { ?>
     <div class="container">
