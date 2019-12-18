@@ -66,11 +66,6 @@ class CtrlGallery extends Ctrl {
         foreach ($this->_comment as $values) {
             array_push($this->_data['commentAndDate'], $values['comment'], $values['comment_date']);
         }
-        debug($this->_data);
-        debug($this->_data);
-        debug($this->_data);
-        debug($this->_data);
-        debug($this->_data);
         $this->_view = new Gallery($this->_data);
         $this->_view->buildPage();
     }
